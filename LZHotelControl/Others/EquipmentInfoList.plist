@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>number</key>
+		<integer>1</integer>
+		<key>ChineseName</key>
+		<string>灯光</string>
+		<key>EnglishName</key>
+		<string>LIGHTS</string>
+		<key>icon</key>
+		<string>light.png</string>
+		<key>buttonImages</key>
+		<array>
+			<string>0</string>
+			<string>1</string>
+		</array>
+	</dict>
+	<dict>
+		<key>number</key>
+		<integer>2</integer>
+		<key>ChineseName</key>
+		<string>空调</string>
+		<key>EnglishName</key>
+		<string>AIRCON</string>
+		<key>icon</key>
+		<string>light</string>
+		<key>buttonImages</key>
+		<array>
+			<string>0</string>
+			<string>1</string>
+		</array>
+	</dict>
+	<dict>
+		<key>number</key>
+		<integer>3</integer>
+		<key>ChineseName</key>
+		<string>服务</string>
+		<key>EnglishName</key>
+		<string>SERVICE</string>
+		<key>icon</key>
+		<string>light.png</string>
+		<key>buttonImages</key>
+		<array>
+			<string>0</string>
+			<string>1</string>
+		</array>
+	</dict>
+	<dict>
+		<key>number</key>
+		<integer>4</integer>
+		<key>ChineseName</key>
+		<string>设置</string>
+		<key>EnglishName</key>
+		<string>SETTING</string>
+		<key>icon</key>
+		<string>light.png</string>
+		<key>buttonImages</key>
+		<array>
+			<string>0</string>
+			<string>1</string>
+		</array>
+	</dict>
+</array>
+</plist>
