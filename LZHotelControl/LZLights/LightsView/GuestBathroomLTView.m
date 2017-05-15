@@ -14,7 +14,7 @@
 {
     if ([super initWithFrame:frame]) {
         //Add View tag
-        self.tag = 5;
+//        self.tag = 5;
 
         //设置界面
         self = [[[NSBundle mainBundle] loadNibNamed:@"GuestBathroomLTView" owner:nil options:nil] lastObject];
@@ -32,6 +32,14 @@
 
 - (void)buttonClicked:(UIButton *)button{
     button.selected = button.isSelected ? FALSE:TRUE;
+    
+    NSString *stateStr = button.isSelected ? @"01":@"00";
+    NSDictionary *dic = @{@"equipmentNum":@"01"
+                          , @"viewNum":@"05"
+                          , @"buttonNum":[NSString stringWithFormat:@"%ld",button.tag]
+                          , @"state":stateStr
+                          };
+    [EPCore buttonClickedProcessingWithInfoDictionary:dic];
 }
 
 - (void)allLightsSwitchIsOpen:(BOOL)isOpen{

@@ -35,7 +35,6 @@
 
     //添加控制器
     [self addControllerForTabBarController];
-
 }
 
 - (void)viewDidLayoutSubviews{
@@ -63,6 +62,7 @@
         
         //把自定义的tabbar添加到 系统的tabbar上
         [self.tabBar addSubview:wDYTabbar];
+        
     });
  
  

@@ -14,7 +14,7 @@
 {
     if ([super initWithFrame:frame]) {
         //Add View tag
-        self.tag = 2;
+//        self.tag = 2;
         
         //设置界面
         self = [[[NSBundle mainBundle] loadNibNamed:@"MainLampLTView" owner:nil options:nil] lastObject];
@@ -32,6 +32,18 @@
 
 - (void)buttonClicked:(UIButton *)button{
     button.selected = button.isSelected ? FALSE:TRUE;
+    
+    if ((button.tag >= 3) && (button.tag <= 4)) {
+        [self otherSceneSettingIsNonSelect:button.tag];
+    }
+    
+    NSString *stateStr = button.isSelected ? @"01":@"00";
+    NSDictionary *dic = @{@"equipmentNum":@"1"
+                          , @"viewNum":@"02"
+                          , @"buttonNum":[NSString stringWithFormat:@"%ld",button.tag]
+                          , @"state":stateStr
+                          };
+    [EPCore buttonClickedProcessingWithInfoDictionary:dic];
 }
 
 - (void)allLightsSwitchIsOpen:(BOOL)isOpen{
@@ -43,6 +55,17 @@
     }
 
 }
+
+//所有模式置为非选择状态
+- (void)otherSceneSettingIsNonSelect:(NSInteger)tag{
+    for (NSUInteger i = 3; i <= 4; i++) {
+        UIButton *button =[self viewWithTag:i];
+        if ((i != tag) && button) {
+            button.selected = FALSE;
+        }
+    }
+}
+
 
 
 @end

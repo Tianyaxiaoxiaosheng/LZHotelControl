@@ -8,54 +8,23 @@
 
 #import "UDPNetwork.h"
 @interface UDPNetwork ()<AsyncUdpSocketDelegate>
-@property (nonatomic, copy) NSString *path;
 
 @property (nonatomic, assign)   BOOL isReceiveNetworkData;
 @property (nonatomic, strong) AsyncUdpSocket *socket;
+
+@property (nonatomic, strong) NSDictionary *roomInfoDic;
 @end
 
 @implementation UDPNetwork
 
 #pragma mark - lazyload
-- (NSString *)path{
-    if (!_path) {
-        //建立文件管理
-//        NSFileManager *fm = [NSFileManager defaultManager];
-         //找到Documents文件所在的路径
-        NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-        //取得第一个Documents文件夹的路径
-        NSString *filePath = [pathArray firstObject];
-        //把NetworkInfoDic文件加入
-        _path = [filePath stringByAppendingPathComponent:@"NetworkInfoDic.plist"];
+- (NSDictionary *)roomInfoDic{
+    if (!_roomInfoDic) {
+        _roomInfoDic = [RoomInfo sharedRoomInfo].roomInfoDic;
     }
-    return _path;
+    return _roomInfoDic;
 }
 
-- (NSDictionary *)networkInfoDic
-{
-    if (!_networkInfoDic) {
-        _networkInfoDic = [NSMutableDictionary dictionaryWithContentsOfFile:self.path];
-        //NSLog(@"%@", _networkInfoDic);
-        //只有第一次执行该段代码时，_networkInfoDic从文件获取不到数据，执行下方的创建初始化
-        if (!_networkInfoDic) {
-            //如果没有读取到数据，则从建文件并初始数据
-            NSFileManager *fm = [NSFileManager defaultManager];
-            [fm createFileAtPath:self.path contents:nil attributes:nil];
-            
-            //网络初始数据
-            NSDictionary *portDic = @{@"1":@"12345", @"2":@"12345", @"3":@"12345"};
-            NSDictionary *dic = @{@"host":@"192.168.0.1", @"port":portDic};
-            
-            [dic writeToFile:self.path atomically:YES];
-            _networkInfoDic = [NSMutableDictionary dictionaryWithContentsOfFile:self.path];
-            //NSLog(@"%@", _networkInfoDic);
-        }
-     }
-    return _networkInfoDic;
-}
-- (BOOL)renewLocalNetworkInfo{
-    return [self.networkInfoDic writeToFile:self.path atomically:YES];
-}
 
 #pragma mark-确保被创建一次
 static UDPNetwork *sharedUDPNetwork = nil;
@@ -100,7 +69,11 @@ static UDPNetwork *sharedUDPNetwork = nil;
         _socket = [[AsyncUdpSocket alloc] initWithDelegate:self];
         //绑定端口
         NSError *error = nil;
-        [_socket bindToPort:6000 error:&error];
+        if ([_socket bindToPort:[self.roomInfoDic[@"localPort"] integerValue] error:&error]){
+            NSLog(@"socket bind success!");
+        }else{
+            NSLog(@"socket bind failed!");
+        }
         //此错误，未找到解决方案，但不影响发送接收
         //NSLog(@"%@", error);
     }
@@ -114,6 +87,7 @@ static UDPNetwork *sharedUDPNetwork = nil;
     return _isReceiveNetworkData;
 }
 
+//启动接收网络
 - (BOOL)startReceiveNetworkData{
     //防止多次启动
     if (self.isReceiveNetworkData) {
@@ -123,13 +97,40 @@ static UDPNetwork *sharedUDPNetwork = nil;
     }else{
         self.isReceiveNetworkData = TRUE;
         
-        //测试发送数据
-        [self.socket sendData:[NSData dataWithBytes:@"123456789" length:9] toHost:@"172.144.1.107" port:5188 withTimeout:2.0 tag:1];
+        //连接网络
+        NSError *error = [[NSError alloc] init];
+        if ([self.socket connectToHost:[self.roomInfoDic objectForKey:@"rcuIp"] onPort:[[self.roomInfoDic objectForKey:@"rcuPort"] intValue] error:&error]){
+            
+            //发送一个确认信息
+            [sharedUDPNetwork sendDataToRCU:[NSData dataWithBytes:@"ACK" length:3]];
+            
+            NSLog(@"connectToHost Success!");
+        }else{
+            NSLog(@"connectToHost failed!");
+            
+        }
         
         //启动接收线程
         [self.socket receiveWithTimeout:-1 tag:0];
         return TRUE;
     }
+}
+
+- (BOOL)disConnect{
+    return false;
+}
+
+//发送数据方法
+- (BOOL)sendDataToRCU:(NSData *)data{
+    
+    // This method is only for connected sockets
+    if ([self.socket sendData:data withTimeout:2.0 tag:0]){
+        
+        NSLog(@"sending data success !");
+        return true;
+    }
+    NSLog(@"sending data failed !");
+    return false;
 }
 
 #pragma mark -AsyncUdpSocketDelegate

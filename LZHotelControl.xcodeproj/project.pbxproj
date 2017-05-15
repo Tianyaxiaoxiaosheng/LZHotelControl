@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		EC682B24803D859EC38BEB80 /* libPods-LZHotelControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 695E9764E7B9827B378FBF1C /* libPods-LZHotelControl.a */; };
+		F01484261EC9823E008893C4 /* ON.png in Resources */ = {isa = PBXBuildFile; fileRef = F01484251EC9823E008893C4 /* ON.png */; };
+		F01484281EC9824C008893C4 /* OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = F01484271EC9824C008893C4 /* OFF.png */; };
+		F014842B1EC997E2008893C4 /* EPCore.m in Sources */ = {isa = PBXBuildFile; fileRef = F014842A1EC997E2008893C4 /* EPCore.m */; };
 		F095C2111EC3F1C100871874 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C2101EC3F1C100871874 /* main.m */; };
 		F095C2141EC3F1C100871874 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C2131EC3F1C100871874 /* AppDelegate.m */; };
 		F095C21C1EC3F1C100871874 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F095C21B1EC3F1C100871874 /* Assets.xcassets */; };
@@ -48,8 +51,6 @@
 		F095C4DB1EC3F4AE00871874 /* LightClose2.png in Resources */ = {isa = PBXBuildFile; fileRef = F095C2511EC3F4AD00871874 /* LightClose2.png */; };
 		F095C4DC1EC3F4AE00871874 /* LightOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = F095C2521EC3F4AD00871874 /* LightOpen.png */; };
 		F095C4DD1EC3F4AE00871874 /* LightOpen2.png in Resources */ = {isa = PBXBuildFile; fileRef = F095C2531EC3F4AD00871874 /* LightOpen2.png */; };
-		F095C4DE1EC3F4AE00871874 /* OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = F095C2541EC3F4AD00871874 /* OFF.png */; };
-		F095C4DF1EC3F4AE00871874 /* ON.png in Resources */ = {isa = PBXBuildFile; fileRef = F095C2551EC3F4AD00871874 /* ON.png */; };
 		F095C4E01EC3F4AE00871874 /* reception.png in Resources */ = {isa = PBXBuildFile; fileRef = F095C2561EC3F4AD00871874 /* reception.png */; };
 		F095C4E11EC3F4AE00871874 /* reception2.png in Resources */ = {isa = PBXBuildFile; fileRef = F095C2571EC3F4AD00871874 /* reception2.png */; };
 		F095C4E21EC3F4AE00871874 /* romantic.png in Resources */ = {isa = PBXBuildFile; fileRef = F095C2581EC3F4AD00871874 /* romantic.png */; };
@@ -129,14 +130,18 @@
 		F095C6CB1EC44F0C00871874 /* ServerKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6CA1EC44F0C00871874 /* ServerKeyboardView.m */; };
 		F095C6CE1EC450D400871874 /* SetKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6CD1EC450D400871874 /* SetKeyboardView.m */; };
 		F095C6D11EC4535D00871874 /* UDPNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6D01EC4535D00871874 /* UDPNetwork.m */; };
-		F095C6D91EC4617A00871874 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6D81EC4617A00871874 /* MBProgressHUD.m */; };
 		F095C6DD1EC466C000871874 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6DC1EC466C000871874 /* AsyncUdpSocket.m */; };
+		F095C6E91EC59D8700871874 /* RoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6E81EC59D8700871874 /* RoomInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		68A0620DCCFE844B4D75AC79 /* Pods-LZHotelControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZHotelControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-LZHotelControl/Pods-LZHotelControl.release.xcconfig"; sourceTree = "<group>"; };
 		695E9764E7B9827B378FBF1C /* libPods-LZHotelControl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LZHotelControl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE68156FE0E0B7E52A1020F2 /* Pods-LZHotelControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZHotelControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LZHotelControl/Pods-LZHotelControl.debug.xcconfig"; sourceTree = "<group>"; };
+		F01484251EC9823E008893C4 /* ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ON.png; sourceTree = "<group>"; };
+		F01484271EC9824C008893C4 /* OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OFF.png; sourceTree = "<group>"; };
+		F01484291EC997E2008893C4 /* EPCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPCore.h; sourceTree = "<group>"; };
+		F014842A1EC997E2008893C4 /* EPCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPCore.m; sourceTree = "<group>"; };
 		F095C20C1EC3F1C100871874 /* LZHotelControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LZHotelControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F095C2101EC3F1C100871874 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F095C2121EC3F1C100871874 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -181,8 +186,6 @@
 		F095C2511EC3F4AD00871874 /* LightClose2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightClose2.png; sourceTree = "<group>"; };
 		F095C2521EC3F4AD00871874 /* LightOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightOpen.png; sourceTree = "<group>"; };
 		F095C2531EC3F4AD00871874 /* LightOpen2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightOpen2.png; sourceTree = "<group>"; };
-		F095C2541EC3F4AD00871874 /* OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OFF.png; sourceTree = "<group>"; };
-		F095C2551EC3F4AD00871874 /* ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ON.png; sourceTree = "<group>"; };
 		F095C2561EC3F4AD00871874 /* reception.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reception.png; sourceTree = "<group>"; };
 		F095C2571EC3F4AD00871874 /* reception2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reception2.png; sourceTree = "<group>"; };
 		F095C2581EC3F4AD00871874 /* romantic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = romantic.png; sourceTree = "<group>"; };
@@ -283,10 +286,10 @@
 		F095C6CD1EC450D400871874 /* SetKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetKeyboardView.m; sourceTree = "<group>"; };
 		F095C6CF1EC4535C00871874 /* UDPNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPNetwork.h; sourceTree = "<group>"; };
 		F095C6D01EC4535D00871874 /* UDPNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPNetwork.m; sourceTree = "<group>"; };
-		F095C6D71EC4617A00871874 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		F095C6D81EC4617A00871874 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		F095C6DB1EC466C000871874 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
 		F095C6DC1EC466C000871874 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		F095C6E71EC59D8700871874 /* RoomInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomInfo.h; sourceTree = "<group>"; };
+		F095C6E81EC59D8700871874 /* RoomInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,7 +350,6 @@
 				F095C22C1EC3F4AD00871874 /* LZImages */,
 				F095C2961EC3F4AD00871874 /* Others */,
 				F095C22A1EC3F49C00871874 /* LZPch */,
-				F095C6D61EC4617A00871874 /* MBProgressHUD */,
 				F095C6DA1EC466C000871874 /* AsyncUdpSocket */,
 				F095C2121EC3F1C100871874 /* AppDelegate.h */,
 				F095C2131EC3F1C100871874 /* AppDelegate.m */,
@@ -440,9 +442,9 @@
 				F095C2501EC3F4AD00871874 /* LightClose.png */,
 				F095C2511EC3F4AD00871874 /* LightClose2.png */,
 				F095C2521EC3F4AD00871874 /* LightOpen.png */,
+				F01484251EC9823E008893C4 /* ON.png */,
 				F095C2531EC3F4AD00871874 /* LightOpen2.png */,
-				F095C2541EC3F4AD00871874 /* OFF.png */,
-				F095C2551EC3F4AD00871874 /* ON.png */,
+				F01484271EC9824C008893C4 /* OFF.png */,
 				F095C2561EC3F4AD00871874 /* reception.png */,
 				F095C2571EC3F4AD00871874 /* reception2.png */,
 				F095C2581EC3F4AD00871874 /* romantic.png */,
@@ -519,6 +521,10 @@
 				F095C6CF1EC4535C00871874 /* UDPNetwork.h */,
 				F095C6D01EC4535D00871874 /* UDPNetwork.m */,
 				F095C2991EC3F4AD00871874 /* EquipmentInfoList.plist */,
+				F095C6E71EC59D8700871874 /* RoomInfo.h */,
+				F095C6E81EC59D8700871874 /* RoomInfo.m */,
+				F01484291EC997E2008893C4 /* EPCore.h */,
+				F014842A1EC997E2008893C4 /* EPCore.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -730,15 +736,6 @@
 			path = SetView;
 			sourceTree = "<group>";
 		};
-		F095C6D61EC4617A00871874 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				F095C6D71EC4617A00871874 /* MBProgressHUD.h */,
-				F095C6D81EC4617A00871874 /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		F095C6DA1EC466C000871874 /* AsyncUdpSocket */ = {
 			isa = PBXGroup;
 			children = (
@@ -817,7 +814,6 @@
 				F095C4C51EC3F4AE00871874 /* AZhire.png in Resources */,
 				F095C4FC1EC3F4AE00871874 /* working.png in Resources */,
 				F095C50C1EC3F4AE00871874 /* setting1.png in Resources */,
-				F095C4DE1EC3F4AE00871874 /* OFF.png in Resources */,
 				F095C4CD1EC3F4AE00871874 /* model_code.png in Resources */,
 				F095C4EA1EC3F4AE00871874 /* Scene4.png in Resources */,
 				F095C6991EC3FBBB00871874 /* GuestBathroomLTView.xib in Resources */,
@@ -827,7 +823,6 @@
 				F095C4FE1EC3F4AE00871874 /* main_bk.jpg in Resources */,
 				F095C5081EC3F4AE00871874 /* lights1.png in Resources */,
 				F095C4DA1EC3F4AE00871874 /* LightClose.png in Resources */,
-				F095C4DF1EC3F4AE00871874 /* ON.png in Resources */,
 				F095C68A1EC3FBBB00871874 /* ACNavigationView.xib in Resources */,
 				F095C5021EC3F4AE00871874 /* Service_SOS2.png in Resources */,
 				F095C5141EC3F4AE00871874 /* EquipmentInfoList.plist in Resources */,
@@ -882,6 +877,7 @@
 				F095C4D61EC3F4AE00871874 /* wind_speed4.png in Resources */,
 				F095C4F81EC3F4AE00871874 /* voice+.png in Resources */,
 				F095C4F41EC3F4AE00871874 /* tv+.png in Resources */,
+				F01484261EC9823E008893C4 /* ON.png in Resources */,
 				F095C4C91EC3F4AE00871874 /* AZidong.png in Resources */,
 				F095C4F51EC3F4AE00871874 /* tv+2.png in Resources */,
 				F095C5071EC3F4AE00871874 /* lights0.png in Resources */,
@@ -902,6 +898,7 @@
 				F095C4E81EC3F4AE00871874 /* Scene3.png in Resources */,
 				F095C4E61EC3F4AE00871874 /* Scene2.png in Resources */,
 				F095C4F21EC3F4AE00871874 /* spaOpen.png in Resources */,
+				F01484281EC9824C008893C4 /* OFF.png in Resources */,
 				F095C5061EC3F4AE00871874 /* aircon1.png in Resources */,
 				F095C6951EC3FBBB00871874 /* BedroomLTView.xib in Resources */,
 				F095C4D41EC3F4AE00871874 /* wind_speed2.png in Resources */,
@@ -976,14 +973,15 @@
 				F095C6BB1EC42D9800871874 /* OverAllControlView.m in Sources */,
 				F095C6CB1EC44F0C00871874 /* ServerKeyboardView.m in Sources */,
 				F095C6BA1EC42D9800871874 /* MainLampLTView.m in Sources */,
+				F095C6E91EC59D8700871874 /* RoomInfo.m in Sources */,
 				F095C6A21EC3FBBB00871874 /* ServerViewController.m in Sources */,
 				F095C63B1EC3FA0500871874 /* EquipmentInfo.m in Sources */,
 				F095C6CE1EC450D400871874 /* SetKeyboardView.m in Sources */,
 				F095C2141EC3F1C100871874 /* AppDelegate.m in Sources */,
 				F095C2111EC3F1C100871874 /* main.m in Sources */,
 				F095C6C41EC43D9000871874 /* ACNavigationView.m in Sources */,
+				F014842B1EC997E2008893C4 /* EPCore.m in Sources */,
 				F095C63D1EC3FA0500871874 /* TitleBarView.m in Sources */,
-				F095C6D91EC4617A00871874 /* MBProgressHUD.m in Sources */,
 				F095C63F1EC3FA0500871874 /* WDYTabbar.m in Sources */,
 				F095C6D11EC4535D00871874 /* UDPNetwork.m in Sources */,
 				F095C6BC1EC42D9800871874 /* ToletLTView.m in Sources */,

@@ -41,8 +41,9 @@
 //    NSLog(@"%lf, %lf, %lf, %lf,", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
 //    
     if (self = [super initWithFrame:frame]) {
-//        self.backgroundColor = [UIColor grayColor];
-           self.backgroundColor = [UIColor colorWithRed:192/255 green:192/255 blue:192/255 alpha:0.4];
+        
+        //系统tabbar本来的颜色无法
+        self.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0 alpha:1];
         
     }
     return  self;

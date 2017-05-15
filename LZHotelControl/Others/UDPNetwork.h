@@ -17,6 +17,10 @@
 //启动网络接收
 - (BOOL)startReceiveNetworkData;
 
-//更新本地网络信息
-- (BOOL)renewLocalNetworkInfo;
+//断开连接
+- (BOOL)disConnect;
+
+//发送数据
+- (BOOL)sendDataToRCU:(NSData *)data;
+
 @end

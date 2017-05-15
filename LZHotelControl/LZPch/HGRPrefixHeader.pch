@@ -39,6 +39,8 @@
 #import "SetKeyboardView.h"
 
 #import "UDPNetwork.h"
+#import "RoomInfo.h"
+#import "EPCore.h"
 
 
 
@@ -49,8 +51,7 @@
 #import <unistd.h>
 //Udp
 #import "AsyncUdpSocket.h"
-//MBProgressHUD
-#import "MBProgressHUD.h"
+
 //SVProgressHUD
 #import "SVProgressHUD.h"
 
