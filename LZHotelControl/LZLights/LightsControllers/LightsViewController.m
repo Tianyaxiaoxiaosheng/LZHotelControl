@@ -106,6 +106,30 @@
     
     //初始化键盘控制界面
     [self initLTnavigationBarKeyboardView];
+    
+    //注册通知，死亡时移除
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(controlInformationProcessing:) name:@"LightsControllerNotification" object:nil];
+}
+
+- (void)controlInformationProcessing:(NSNotification *)notification{
+    
+    NSLog(@"LightsControllerNotification");
+    NSDictionary *dic = [notification userInfo];
+    //判断界面
+    switch ([dic[@"viewNum"] integerValue]) {
+        case 1:
+            [self bedroomLTViewControl:dic];
+            break;
+            
+        default:
+            break;
+    }
+
+}
+
+- (void)bedroomLTViewControl:(NSDictionary *)dic{
+    UIButton *button = [self.bedroomLTView viewWithTag:[dic[@"buttonNum"] integerValue]];
+    button.selected = ([dic[@"state"] integerValue] > 0) ? YES:NO;
 }
 
 - (void)initLTnavigationBarKeyboardView{
@@ -116,6 +140,8 @@
 
 //控制器死亡时移除观察者，
 - (void)dealloc{
+    //tabbar 切换是不会死亡的
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 }
 
@@ -166,6 +192,7 @@
     [self.tempView removeFromSuperview];
     self.tempView = view;
     [self.lTnavigationBarView addSubview:view];
+//    NSLog(@"view tag: %ld", view.tag);
 }
 
 @end

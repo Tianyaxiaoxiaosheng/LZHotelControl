@@ -13,8 +13,6 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if ([super initWithFrame:frame]) {
-        //Add View tag, 无效
-//        self.tag = 1;
         
         //设置界面
         self = [[[NSBundle mainBundle] loadNibNamed:@"BedroomLTView" owner:nil options:nil] lastObject];
@@ -27,6 +25,7 @@
             }
         }
     }
+    
     return self;
 }
 

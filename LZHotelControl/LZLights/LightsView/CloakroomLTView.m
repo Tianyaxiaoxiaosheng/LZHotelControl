@@ -13,20 +13,19 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if ([super initWithFrame:frame]) {
-        //Add View tag
-//        self.tag = 4;
         
         //设置界面
         self = [[[NSBundle mainBundle] loadNibNamed:@"CloakroomLTView" owner:nil options:nil] lastObject];
         self.frame = frame;
         
-        for (NSInteger i = 1; i <= 2; i++) {
+         for (NSInteger i = 1; i <= 2; i++) {
             UIButton *button =[self viewWithTag:i];
             if (button) {
                 [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
             }
         }
     }
+    
     return self;
 }
 

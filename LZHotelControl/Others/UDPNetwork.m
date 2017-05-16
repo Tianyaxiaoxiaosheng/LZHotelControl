@@ -82,6 +82,7 @@ static UDPNetwork *sharedUDPNetwork = nil;
 
 - (BOOL)isIsReceiveNetworkData{
     if (!_isReceiveNetworkData) {
+        //启动时不接收数据
         _isReceiveNetworkData = FALSE;
     }
     return _isReceiveNetworkData;
@@ -136,10 +137,14 @@ static UDPNetwork *sharedUDPNetwork = nil;
 #pragma mark -AsyncUdpSocketDelegate
 //UDP接收消息
 - (BOOL)onUdpSocket:(AsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port {
-    NSLog(@"host----->%@ :%hu", host, port);
+    
+    NSString *recStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"host----->%@ :%hu\ndata----->%@", host, port, recStr);
     //对接收到的信息处理，如果处理时间过长，会影响接收，可采用GCD进行多任务异步处理
     
-    //测试页面的同步更新
+    //接收到的信息交由处理中心处理
+    [EPCore receiveDataProcessingWithData:data];
+ 
 
     //启动监听下一条消息
     [self.socket receiveWithTimeout:-1 tag:0];

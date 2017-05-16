@@ -13,4 +13,5 @@
 + (instancetype)sharedEPCore;
 
 + (void) buttonClickedProcessingWithInfoDictionary:(NSDictionary *)infoDic;
++ (void) receiveDataProcessingWithData:(NSData *)data;
 @end

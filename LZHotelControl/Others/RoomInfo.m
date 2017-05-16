@@ -35,7 +35,7 @@
             [fm createFileAtPath:self.roomInfoPlistPath contents:nil attributes:nil];
             
             //initial data
-            NSDictionary *dic = @{@"roomNum":@"0000", @"key":@"123456", @"localPort":@"12345", @"rcuIp":@"192.168.1.101" , @"rcuPort":@"9990"};
+            NSDictionary *dic = @{@"roomNum":@"0000", @"key":@"123456", @"localPort":@"12345", @"rcuIp":@"172.144.1.102" , @"rcuPort":@"9990"};
             
             [dic writeToFile:self.roomInfoPlistPath atomically:YES];
             _roomInfoDic = [NSMutableDictionary dictionaryWithContentsOfFile:self.roomInfoPlistPath];

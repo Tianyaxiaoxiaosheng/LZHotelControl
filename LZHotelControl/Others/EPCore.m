@@ -21,6 +21,7 @@ static EPCore *sharedEPCore;
     return sharedEPCore;
 }
 
+#pragma mark -- 按钮点击处理
 + (void)buttonClickedProcessingWithInfoDictionary:(NSDictionary *)infoDic{
     
 
@@ -54,6 +55,40 @@ static EPCore *sharedEPCore;
     }else{
         return oneStr;
     }
+}
+
+#pragma mark -- 接收到的数据处理
++ (void)receiveDataProcessingWithData:(NSData *)data{
+    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    if (dataStr.length != 8) {
+        NSLog(@"The data format is wrong !");
+        return;
+    }
+    
+    NSDictionary *dic = @{@"equipmentNum":[dataStr substringWithRange:NSMakeRange(0, 2)]
+                          , @"viewNum":[dataStr substringWithRange:NSMakeRange(2, 2)]
+                          , @"buttonNum":[dataStr substringWithRange:NSMakeRange(4, 2)]
+                          , @"state":[dataStr substringWithRange:NSMakeRange(6, 2)]
+                          };
+    
+    //根据设备号分类发送通知
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    switch ([dic[@"equipmentNum"] integerValue]) {
+        case 1:
+            [defaultCenter postNotificationName:@"LightsControllerNotification" object:nil userInfo:dic];
+            break;
+        case 2:
+            [defaultCenter postNotificationName:@"AirconControllerNotification" object:nil userInfo:dic];
+            break;
+        case 3:
+            [defaultCenter postNotificationName:@"ServerControllerNotification" object:nil userInfo:dic];
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 @end
