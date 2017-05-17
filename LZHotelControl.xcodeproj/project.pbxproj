@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EC682B24803D859EC38BEB80 /* libPods-LZHotelControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 695E9764E7B9827B378FBF1C /* libPods-LZHotelControl.a */; };
+		F004879D1ECAE6060087E3F0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F004879C1ECAE6060087E3F0 /* Settings.bundle */; };
+		F00487A11ECBEDBC0087E3F0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F00487A31ECBEDBC0087E3F0 /* InfoPlist.strings */; };
 		F01484261EC9823E008893C4 /* ON.png in Resources */ = {isa = PBXBuildFile; fileRef = F01484251EC9823E008893C4 /* ON.png */; };
 		F01484281EC9824C008893C4 /* OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = F01484271EC9824C008893C4 /* OFF.png */; };
 		F014842B1EC997E2008893C4 /* EPCore.m in Sources */ = {isa = PBXBuildFile; fileRef = F014842A1EC997E2008893C4 /* EPCore.m */; };
@@ -138,6 +140,10 @@
 		68A0620DCCFE844B4D75AC79 /* Pods-LZHotelControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZHotelControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-LZHotelControl/Pods-LZHotelControl.release.xcconfig"; sourceTree = "<group>"; };
 		695E9764E7B9827B378FBF1C /* libPods-LZHotelControl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LZHotelControl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE68156FE0E0B7E52A1020F2 /* Pods-LZHotelControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZHotelControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LZHotelControl/Pods-LZHotelControl.debug.xcconfig"; sourceTree = "<group>"; };
+		F004879C1ECAE6060087E3F0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F004879E1ECBECF00087E3F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		F00487A21ECBEDBC0087E3F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		F00487A41ECBEDC10087E3F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F01484251EC9823E008893C4 /* ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ON.png; sourceTree = "<group>"; };
 		F01484271EC9824C008893C4 /* OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OFF.png; sourceTree = "<group>"; };
 		F01484291EC997E2008893C4 /* EPCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPCore.h; sourceTree = "<group>"; };
@@ -324,6 +330,8 @@
 		F095C2031EC3F1C100871874 = {
 			isa = PBXGroup;
 			children = (
+				F00487A31ECBEDBC0087E3F0 /* InfoPlist.strings */,
+				F004879C1ECAE6060087E3F0 /* Settings.bundle */,
 				F095C20E1EC3F1C100871874 /* LZHotelControl */,
 				F095C20D1EC3F1C100871874 /* Products */,
 				2402E2EE121CC67A57A8F42B /* Pods */,
@@ -876,6 +884,7 @@
 				F095C4E21EC3F4AE00871874 /* romantic.png in Resources */,
 				F095C4D61EC3F4AE00871874 /* wind_speed4.png in Resources */,
 				F095C4F81EC3F4AE00871874 /* voice+.png in Resources */,
+				F00487A11ECBEDBC0087E3F0 /* InfoPlist.strings in Resources */,
 				F095C4F41EC3F4AE00871874 /* tv+.png in Resources */,
 				F01484261EC9823E008893C4 /* ON.png in Resources */,
 				F095C4C91EC3F4AE00871874 /* AZidong.png in Resources */,
@@ -904,6 +913,7 @@
 				F095C4D41EC3F4AE00871874 /* wind_speed2.png in Resources */,
 				F095C5041EC3F4AE00871874 /* Service_WR2.png in Resources */,
 				F095C4CB1EC3F4AE00871874 /* JiangWen.png in Resources */,
+				F004879D1ECAE6060087E3F0 /* Settings.bundle in Resources */,
 				F095C4E91EC3F4AE00871874 /* Scene32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -995,10 +1005,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F00487A31ECBEDBC0087E3F0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F00487A21ECBEDBC0087E3F0 /* zh-Hans */,
+				F00487A41ECBEDC10087E3F0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		F095C21D1EC3F1C100871874 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F095C21E1EC3F1C100871874 /* Base */,
+				F004879E1ECBECF00087E3F0 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1010,6 +1030,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1059,6 +1080,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1102,7 +1124,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CE68156FE0E0B7E52A1020F2 /* Pods-LZHotelControl.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E47JKL8BW9;
 				GCC_PREFIX_HEADER = /Users/jony/IOSDemo/LZHotelControl/LZHotelControl/LZPch/HGRPrefixHeader.pch;
 				INFOPLIST_FILE = LZHotelControl/Info.plist;
@@ -1116,7 +1137,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 68A0620DCCFE844B4D75AC79 /* Pods-LZHotelControl.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E47JKL8BW9;
 				GCC_PREFIX_HEADER = /Users/jony/IOSDemo/LZHotelControl/LZHotelControl/LZPch/HGRPrefixHeader.pch;
 				INFOPLIST_FILE = LZHotelControl/Info.plist;

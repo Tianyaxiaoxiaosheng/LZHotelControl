@@ -29,7 +29,7 @@
     if (!_roomInfoDic) {
         _roomInfoDic = [NSMutableDictionary dictionaryWithContentsOfFile:self.roomInfoPlistPath];
         //测试阶段，先每次进入初始化，此配置可以选择应用程序设置
-        if (_roomInfoDic) {
+        if (!_roomInfoDic) {
             //building initial dictionary when not data.
             NSFileManager *fm = [NSFileManager defaultManager];
             [fm createFileAtPath:self.roomInfoPlistPath contents:nil attributes:nil];
@@ -41,6 +41,7 @@
             _roomInfoDic = [NSMutableDictionary dictionaryWithContentsOfFile:self.roomInfoPlistPath];
         }
     }
+    
     return _roomInfoDic;
 }
 

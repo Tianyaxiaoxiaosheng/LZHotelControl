@@ -96,16 +96,42 @@ static UDPNetwork *sharedUDPNetwork = nil;
         return FALSE;
  
     }else{
-        self.isReceiveNetworkData = TRUE;
+       
         
-        //连接网络
+//        //连接网络
+//        NSError *error = [[NSError alloc] init];
+//        if ([self.socket connectToHost:[self.roomInfoDic objectForKey:@"rcuIp"] onPort:[[self.roomInfoDic objectForKey:@"rcuPort"] intValue] error:&error]){
+//            
+//            //发送一个确认信息
+//            [sharedUDPNetwork sendDataToRCU:[NSData dataWithBytes:@"ACK" length:3]];
+//            
+//            NSLog(@"connectToHost Success!");
+//        }else{
+//            NSLog(@"connectToHost failed!");
+//            
+//        }
+        
+        //rcu连接数据从设置中读取,如果没有设置，就采用默认值
         NSError *error = [[NSError alloc] init];
-        if ([self.socket connectToHost:[self.roomInfoDic objectForKey:@"rcuIp"] onPort:[[self.roomInfoDic objectForKey:@"rcuPort"] intValue] error:&error]){
-            
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *rcuIp = (NSString *)[defaults stringForKey:@"rcuIp"];
+        if (!rcuIp) {
+            rcuIp = [self.roomInfoDic objectForKey:@"rcuIp"];
+        }
+        NSString *rcuPort = (NSString *)[defaults stringForKey:@"rcuPort"];
+        if (!rcuPort) {
+            rcuPort = [self.roomInfoDic objectForKey:@"rcuPort"];
+        }
+        NSLog(@"RCU: %@:%@", rcuIp, rcuPort);
+        
+        if ([self.socket connectToHost:rcuIp onPort:[rcuPort intValue] error:&error]){
+
             //发送一个确认信息
             [sharedUDPNetwork sendDataToRCU:[NSData dataWithBytes:@"ACK" length:3]];
-            
+
             NSLog(@"connectToHost Success!");
+            //成功后再设置
+            self.isReceiveNetworkData = TRUE;
         }else{
             NSLog(@"connectToHost failed!");
             
@@ -118,6 +144,7 @@ static UDPNetwork *sharedUDPNetwork = nil;
 }
 
 - (BOOL)disConnect{
+    self.isReceiveNetworkData = FALSE;
     return false;
 }
 

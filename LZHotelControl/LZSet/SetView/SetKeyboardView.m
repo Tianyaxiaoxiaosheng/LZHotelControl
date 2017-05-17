@@ -43,6 +43,8 @@
         self.roomNumTextField.placeholder = @"4位数字"; //水印
         self.roomNumTextField.delegate = self;
         
+        //设置开关的初始值
+        
 //        [SVProgressHUD setMinimumDismissTimeInterval:3];
         [SVProgressHUD setMaximumDismissTimeInterval:1];
 //        [SVProgressHUD setFadeInAnimationDuration:0.1];
@@ -56,6 +58,7 @@
     if ([(UISwitch *)sender isOn]) {
         [[UDPNetwork sharedUDPNetwork] startReceiveNetworkData];
     }else{
+        [[UDPNetwork sharedUDPNetwork] disConnect];
     }
 }
 
