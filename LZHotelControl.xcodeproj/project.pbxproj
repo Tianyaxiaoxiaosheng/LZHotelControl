@@ -10,6 +10,7 @@
 		EC682B24803D859EC38BEB80 /* libPods-LZHotelControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 695E9764E7B9827B378FBF1C /* libPods-LZHotelControl.a */; };
 		F004879D1ECAE6060087E3F0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F004879C1ECAE6060087E3F0 /* Settings.bundle */; };
 		F00487A11ECBEDBC0087E3F0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F00487A31ECBEDBC0087E3F0 /* InfoPlist.strings */; };
+		F00487A81ECD87550087E3F0 /* RegisterDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F00487A71ECD87550087E3F0 /* RegisterDevice.m */; };
 		F01484261EC9823E008893C4 /* ON.png in Resources */ = {isa = PBXBuildFile; fileRef = F01484251EC9823E008893C4 /* ON.png */; };
 		F01484281EC9824C008893C4 /* OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = F01484271EC9824C008893C4 /* OFF.png */; };
 		F014842B1EC997E2008893C4 /* EPCore.m in Sources */ = {isa = PBXBuildFile; fileRef = F014842A1EC997E2008893C4 /* EPCore.m */; };
@@ -134,6 +135,7 @@
 		F095C6D11EC4535D00871874 /* UDPNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6D01EC4535D00871874 /* UDPNetwork.m */; };
 		F095C6DD1EC466C000871874 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6DC1EC466C000871874 /* AsyncUdpSocket.m */; };
 		F095C6E91EC59D8700871874 /* RoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6E81EC59D8700871874 /* RoomInfo.m */; };
+		F0CB9B991EF115CA0031F8E4 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CB9B981EF115CA0031F8E4 /* NetworkInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +146,8 @@
 		F004879E1ECBECF00087E3F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		F00487A21ECBEDBC0087E3F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		F00487A41ECBEDC10087E3F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F00487A61ECD87550087E3F0 /* RegisterDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterDevice.h; sourceTree = "<group>"; };
+		F00487A71ECD87550087E3F0 /* RegisterDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDevice.m; sourceTree = "<group>"; };
 		F01484251EC9823E008893C4 /* ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ON.png; sourceTree = "<group>"; };
 		F01484271EC9824C008893C4 /* OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OFF.png; sourceTree = "<group>"; };
 		F01484291EC997E2008893C4 /* EPCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPCore.h; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 		F095C6DC1EC466C000871874 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
 		F095C6E71EC59D8700871874 /* RoomInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomInfo.h; sourceTree = "<group>"; };
 		F095C6E81EC59D8700871874 /* RoomInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomInfo.m; sourceTree = "<group>"; };
+		F0CB9B971EF115CA0031F8E4 /* NetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfo.h; sourceTree = "<group>"; };
+		F0CB9B981EF115CA0031F8E4 /* NetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -533,6 +539,10 @@
 				F095C6E81EC59D8700871874 /* RoomInfo.m */,
 				F01484291EC997E2008893C4 /* EPCore.h */,
 				F014842A1EC997E2008893C4 /* EPCore.m */,
+				F00487A61ECD87550087E3F0 /* RegisterDevice.h */,
+				F00487A71ECD87550087E3F0 /* RegisterDevice.m */,
+				F0CB9B971EF115CA0031F8E4 /* NetworkInfo.h */,
+				F0CB9B981EF115CA0031F8E4 /* NetworkInfo.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -975,6 +985,7 @@
 			files = (
 				F095C6BF1EC431D200871874 /* CZButton.m in Sources */,
 				F095C6C51EC43D9000871874 /* AirconKeyboardView.m in Sources */,
+				F0CB9B991EF115CA0031F8E4 /* NetworkInfo.m in Sources */,
 				F095C6B61EC42D9800871874 /* BedroomLTView.m in Sources */,
 				F095C6A51EC3FBBB00871874 /* SetViewController.m in Sources */,
 				F095C6B81EC42D9800871874 /* GuestBathroomLTView.m in Sources */,
@@ -995,6 +1006,7 @@
 				F095C63F1EC3FA0500871874 /* WDYTabbar.m in Sources */,
 				F095C6D11EC4535D00871874 /* UDPNetwork.m in Sources */,
 				F095C6BC1EC42D9800871874 /* ToletLTView.m in Sources */,
+				F00487A81ECD87550087E3F0 /* RegisterDevice.m in Sources */,
 				F095C6B71EC42D9800871874 /* CloakroomLTView.m in Sources */,
 				F095C63A1EC3FA0500871874 /* MainViewController.m in Sources */,
 				F095C68D1EC3FBBB00871874 /* LightsViewController.m in Sources */,

@@ -41,6 +41,7 @@
 #import "UDPNetwork.h"
 #import "RoomInfo.h"
 #import "EPCore.h"
+#import "RegisterDevice.h"
 
 
 

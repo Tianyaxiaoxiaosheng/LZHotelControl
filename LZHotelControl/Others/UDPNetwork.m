@@ -92,6 +92,7 @@ static UDPNetwork *sharedUDPNetwork = nil;
 - (BOOL)startReceiveNetworkData{
     //防止多次启动
     if (self.isReceiveNetworkData) {
+        //重复连接会崩溃
         NSLog(@"重复启动接收");
         return FALSE;
  
@@ -126,14 +127,19 @@ static UDPNetwork *sharedUDPNetwork = nil;
         
         if ([self.socket connectToHost:rcuIp onPort:[rcuPort intValue] error:&error]){
 
-            //发送一个确认信息
-            [sharedUDPNetwork sendDataToRCU:[NSData dataWithBytes:@"ACK" length:3]];
-
             NSLog(@"connectToHost Success!");
+//            [SVProgressHUD showInfoWithStatus:@"Successfully connected to host!"];
+            
             //成功后再设置
             self.isReceiveNetworkData = TRUE;
+            
+            //发送一个确认信息
+            [sharedUDPNetwork sendDataToRCU:[NSData dataWithBytes:@"ACK" length:3]];
+            
         }else{
             NSLog(@"connectToHost failed!");
+            [SVProgressHUD showInfoWithStatus:@"Failed to connect host, Please check the related settings."];
+            return false;
             
         }
         
@@ -144,7 +150,7 @@ static UDPNetwork *sharedUDPNetwork = nil;
 }
 
 - (BOOL)disConnect{
-    self.isReceiveNetworkData = FALSE;
+//    self.isReceiveNetworkData = FALSE;
     return false;
 }
 
@@ -158,6 +164,7 @@ static UDPNetwork *sharedUDPNetwork = nil;
         return true;
     }
     NSLog(@"sending data failed !");
+    [SVProgressHUD showInfoWithStatus:@"Failed to send data, Please check the related settings."];
     return false;
 }
 
@@ -177,6 +184,10 @@ static UDPNetwork *sharedUDPNetwork = nil;
     [self.socket receiveWithTimeout:-1 tag:0];
     //这里可以加入你想要的代码
     return YES;
+}
+
+- (void)onUdpSocketDidClose:(AsyncUdpSocket *)sock{
+    NSLog(@"%s", __func__);
 }
 
 @end

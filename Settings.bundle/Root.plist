@@ -8,27 +8,47 @@
 	<array>
 		<dict>
 			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
+			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>RCU IP</string>
-			<key>Key</key>
-			<string>rcuIp</string>
-			<key>DefaultValue</key>
-			<string>172.144.1.102</string>
-			<key>KeyboardType</key>
-			<string>NumberPad</string>
+			<string>Local Info</string>
 		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>RCU Port</string>
+			<string>Local Port</string>
 			<key>Key</key>
-			<string>rcuPort</string>
-			<key>DefaultValue</key>
-			<string>9990</string>
-			<key>KeyboardType</key>
-			<string>NumberPad</string>
+			<string>localPort</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Web Info</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Web IP</string>
+			<key>Key</key>
+			<string>webIp</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Web Port</string>
+			<key>Key</key>
+			<string>webPort</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Register URL</string>
+			<key>Key</key>
+			<string>registerUrl</string>
 		</dict>
 	</array>
 </dict>
