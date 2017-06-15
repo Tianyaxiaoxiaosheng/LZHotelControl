@@ -18,4 +18,6 @@
 + (instancetype)sharedNetworkInfo;
 - (BOOL)networkInfoDictionaryWriteToLocatedFile;
 
+- (BOOL)isEqualToTheCurrentIpAddressWithIpAddress:(NSString *)ipAddress;
+
 @end

@@ -38,13 +38,15 @@
 
 #import "SetKeyboardView.h"
 
+#import "NetworkInfo.h"
 #import "UDPNetwork.h"
 #import "RoomInfo.h"
 #import "EPCore.h"
 #import "RegisterDevice.h"
 
-
-
+//local ip
+#import <ifaddrs.h>
+#import <arpa/inet.h>
 //socket
 #import <sys/socket.h>
 #import <netinet/in.h>

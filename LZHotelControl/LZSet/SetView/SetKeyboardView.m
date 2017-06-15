@@ -86,7 +86,16 @@
 
 }
 - (IBAction)test {
-    [[UDPNetwork sharedUDPNetwork] sendDataToRCU:[NSData dataWithBytes:@"Test message" length:12]];
+    //测试发送数据
+    //[[UDPNetwork sharedUDPNetwork] sendDataToRCU:[NSData dataWithBytes:@"Test message" length:12]];
+    
+    //测试IP地址比对
+//    NSString *ipAddress = @"172.144.1.107";
+//    if ([[NetworkInfo sharedNetworkInfo] isEqualToTheCurrentIpAddressWithIpAddress:ipAddress]){
+//        NSLog(@"ip地址相同");
+//    }else{
+//        NSLog(@"ip地址不同");
+//    }
 }
 
 #pragma mark - 文本处理
