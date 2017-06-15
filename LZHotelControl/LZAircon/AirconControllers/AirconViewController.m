@@ -63,6 +63,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //测试设备信息
+    NSLog(@"equipmentNum : %ld", [self.equipmentInfo.number integerValue]);
     
     //添加标题界面
     [self.view addSubview:self.titleBarView];

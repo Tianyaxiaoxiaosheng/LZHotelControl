@@ -74,6 +74,8 @@
 - (NSMutableDictionary *)localInfoDic{
     if (!_localInfoDic) {
         _localInfoDic = [[NSMutableDictionary alloc] initWithDictionary:[self.networkInfoDic objectForKey:@"localInfo"]];
+        //local ip reset
+        [_localInfoDic setObject:self.currentIpAddress forKey:@"localIp"];
     }
     return _localInfoDic;
 }
@@ -146,8 +148,8 @@ static NetworkInfo *sharedNetworkInfo = nil;
     }
     
 }
-- (BOOL)isEqualToTheCurrentIpAddressWithIpAddress:(NSString *)ipAddress{
-    return [self.currentIpAddress isEqualToString:ipAddress];
-}
+//- (BOOL)isEqualToTheCurrentIpAddressWithIpAddress:(NSString *)ipAddress{
+//    return [self.currentIpAddress isEqualToString:ipAddress];
+//}
 
 @end

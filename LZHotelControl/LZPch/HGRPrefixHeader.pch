@@ -43,8 +43,9 @@
 #import "RoomInfo.h"
 #import "EPCore.h"
 #import "RegisterDevice.h"
+#import "WebConnect.h"
 
-//local ip
+//get local ip
 #import <ifaddrs.h>
 #import <arpa/inet.h>
 //socket

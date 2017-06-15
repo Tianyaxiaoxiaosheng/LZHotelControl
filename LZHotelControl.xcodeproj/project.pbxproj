@@ -136,6 +136,7 @@
 		F095C6DD1EC466C000871874 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6DC1EC466C000871874 /* AsyncUdpSocket.m */; };
 		F095C6E91EC59D8700871874 /* RoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6E81EC59D8700871874 /* RoomInfo.m */; };
 		F0CB9B991EF115CA0031F8E4 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CB9B981EF115CA0031F8E4 /* NetworkInfo.m */; };
+		F0CB9B9C1EF252930031F8E4 /* WebConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CB9B9B1EF252930031F8E4 /* WebConnect.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -302,6 +303,8 @@
 		F095C6E81EC59D8700871874 /* RoomInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomInfo.m; sourceTree = "<group>"; };
 		F0CB9B971EF115CA0031F8E4 /* NetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfo.h; sourceTree = "<group>"; };
 		F0CB9B981EF115CA0031F8E4 /* NetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfo.m; sourceTree = "<group>"; };
+		F0CB9B9A1EF252930031F8E4 /* WebConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebConnect.h; sourceTree = "<group>"; };
+		F0CB9B9B1EF252930031F8E4 /* WebConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebConnect.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -543,6 +546,8 @@
 				F00487A71ECD87550087E3F0 /* RegisterDevice.m */,
 				F0CB9B971EF115CA0031F8E4 /* NetworkInfo.h */,
 				F0CB9B981EF115CA0031F8E4 /* NetworkInfo.m */,
+				F0CB9B9A1EF252930031F8E4 /* WebConnect.h */,
+				F0CB9B9B1EF252930031F8E4 /* WebConnect.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -993,6 +998,7 @@
 				F095C6DD1EC466C000871874 /* AsyncUdpSocket.m in Sources */,
 				F095C6BB1EC42D9800871874 /* OverAllControlView.m in Sources */,
 				F095C6CB1EC44F0C00871874 /* ServerKeyboardView.m in Sources */,
+				F0CB9B9C1EF252930031F8E4 /* WebConnect.m in Sources */,
 				F095C6BA1EC42D9800871874 /* MainLampLTView.m in Sources */,
 				F095C6E91EC59D8700871874 /* RoomInfo.m in Sources */,
 				F095C6A21EC3FBBB00871874 /* ServerViewController.m in Sources */,

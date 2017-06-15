@@ -96,6 +96,17 @@
 //    }else{
 //        NSLog(@"ip地址不同");
 //    }
+    
+    //测试注册
+//    NSDictionary *dic = [[WebConnect sharedWebConnect] registerWithInfoDic:@{@"":@""}];
+    NSDictionary *dic = @{@"localIp":@"192.168.0.1",@"localPort":@"12345",@"userId":@"12345",@"userPwd":@"123456"};
+    //NSLog(@"测试按钮点击");
+    [[WebConnect sharedWebConnect] registerWithInfoDic:dic complet:^(NSDictionary *netObject, BOOL isSeccuss){
+        if (isSeccuss) {
+            NSLog(@"netObject: %@",netObject);
+        }
+    }];
+    
 }
 
 #pragma mark - 文本处理
