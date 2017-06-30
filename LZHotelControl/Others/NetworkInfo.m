@@ -57,23 +57,34 @@
     return _networkInfoDicPlistPath;
 }
 
-- (NSMutableDictionary *)NetworkInfoDic{
+- (NSMutableDictionary *)networkInfoDic{
     if (!_networkInfoDic) {
         _networkInfoDic = [NSMutableDictionary dictionaryWithContentsOfFile:self.networkInfoDicPlistPath];
         if (!_networkInfoDic) {
             NSFileManager *fileManager = [NSFileManager defaultManager];
             [fileManager createFileAtPath:self.networkInfoDicPlistPath contents:nil attributes:nil];
-            NSDictionary *dic = [NSDictionary dictionary];
-            [dic writeToFile:self.networkInfoDicPlistPath atomically:YES];
-            //_networkInfoDic = [NSMutableDictionary dictionaryWithContentsOfFile:self.networkInfoDicPlistPath];
+            
+            //initialization
+            NSDictionary *userInfoDic = @{@"userId":@"0000"};
+            NSDictionary *localInfoDic = @{@"localIp":@"192.168.0.1", @"localPort":@12345};
+            NSDictionary *webInfoDic = @{@"webIp":@"192.168.0.15", @"webHttpPort":@8080, @"webSocketPort":@9000, @"webName":@"hotelWeb"};
+            
+            NSDictionary *networkInfoDic = @{@"userInfo":userInfoDic, @"localInfo":localInfoDic, @"webInfo":webInfoDic};
+            
+            [networkInfoDic writeToFile:self.networkInfoDicPlistPath atomically:YES];
+
+            
+            _networkInfoDic = [NSMutableDictionary dictionaryWithContentsOfFile:self.networkInfoDicPlistPath];
         }
     }
+    //NSLog(@"_networkInfoDic: %@", _networkInfoDic);
     return _networkInfoDic;
 }
 
 - (NSMutableDictionary *)localInfoDic{
     if (!_localInfoDic) {
         _localInfoDic = [[NSMutableDictionary alloc] initWithDictionary:[self.networkInfoDic objectForKey:@"localInfo"]];
+        //NSLog(@"_localInfo:%@", _localInfoDic);
         //local ip reset
         [_localInfoDic setObject:self.currentIpAddress forKey:@"localIp"];
     }
@@ -96,6 +107,13 @@
         _userInfoDic = [[NSMutableDictionary alloc] initWithDictionary:[self.networkInfoDic objectForKey:@"userInfo"]];
     }
     return _userInfoDic;
+}
+
+- (NSString *)roomId{
+    if (!_roomId) {
+        _roomId = [self.networkInfoDic objectForKey:@"roomId"];
+    }
+    return _roomId;
 }
 
 #pragma mark-creating once

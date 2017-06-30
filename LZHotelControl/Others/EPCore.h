@@ -14,4 +14,8 @@
 
 + (void) buttonClickedProcessingWithInfoDictionary:(NSDictionary *)infoDic;
 + (void) receiveDataProcessingWithData:(NSData *)data;
+
+//回调机制加入后，方法抽取不完美，无法实现调用回调后的一些操作
++ (void) registerWithUserInfo:(NSString *)userId andPassword:(NSString *)userPwd;
+
 @end

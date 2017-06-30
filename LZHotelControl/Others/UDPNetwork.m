@@ -12,17 +12,17 @@
 @property (nonatomic, assign)   BOOL isReceiveNetworkData;
 @property (nonatomic, strong) AsyncUdpSocket *socket;
 
-@property (nonatomic, strong) NSDictionary *roomInfoDic;
+@property (nonatomic, strong) NSDictionary *rcuInfoDic;
 @end
 
 @implementation UDPNetwork
 
 #pragma mark - lazyload
-- (NSDictionary *)roomInfoDic{
-    if (!_roomInfoDic) {
-        _roomInfoDic = [RoomInfo sharedRoomInfo].roomInfoDic;
+- (NSDictionary *)rcuInfoDic{
+    if (!_rcuInfoDic) {
+        _rcuInfoDic = [[NSDictionary alloc] initWithDictionary:[NetworkInfo sharedNetworkInfo].rcuInfoDic];
     }
-    return _roomInfoDic;
+    return _rcuInfoDic;
 }
 
 
@@ -69,8 +69,16 @@ static UDPNetwork *sharedUDPNetwork = nil;
         _socket = [[AsyncUdpSocket alloc] initWithDelegate:self];
         //绑定端口
         NSError *error = nil;
-        if ([_socket bindToPort:[self.roomInfoDic[@"localPort"] integerValue] error:&error]){
+        NSDictionary *localInfoDic = [[NSDictionary alloc] initWithDictionary:[NetworkInfo sharedNetworkInfo].localInfoDic];
+        if ([_socket bindToPort:[[localInfoDic objectForKey:@"localPort"] intValue] error:&error]){
             NSLog(@"socket bind success!");
+            
+            //socked创建成功后广播- (BOOL)enableBroadcast:(BOOL)flag error:(NSError **)errPtr;
+            //[_socket enableBroadcast:YES error:nil];
+            
+            //加入群内
+            //[_socket joinMulticastGroup:@"172.144.0.0" error:&error];
+            //加群和广播对于udp信息的收发消息影响，暂时未检测出不同
         }else{
             NSLog(@"socket bind failed!");
         }
@@ -113,35 +121,42 @@ static UDPNetwork *sharedUDPNetwork = nil;
 //        }
         
         //rcu连接数据从设置中读取,如果没有设置，就采用默认值
-        NSError *error = [[NSError alloc] init];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *rcuIp = (NSString *)[defaults stringForKey:@"rcuIp"];
-        if (!rcuIp) {
-            rcuIp = [self.roomInfoDic objectForKey:@"rcuIp"];
-        }
-        NSString *rcuPort = (NSString *)[defaults stringForKey:@"rcuPort"];
-        if (!rcuPort) {
-            rcuPort = [self.roomInfoDic objectForKey:@"rcuPort"];
-        }
-        NSLog(@"RCU: %@:%@", rcuIp, rcuPort);
+//        NSError *error = [[NSError alloc] init];
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        NSString *rcuIp = (NSString *)[defaults stringForKey:@"rcuIp"];
+//        if (!rcuIp) {
+//            rcuIp = [self.roomInfoDic objectForKey:@"rcuIp"];
+//        }
+//        NSString *rcuPort = (NSString *)[defaults stringForKey:@"rcuPort"];
+//        if (!rcuPort) {
+//            rcuPort = [self.roomInfoDic objectForKey:@"rcuPort"];
+//        }
+//        NSLog(@"RCU: %@:%@", rcuIp, rcuPort);
         
-        if ([self.socket connectToHost:rcuIp onPort:[rcuPort intValue] error:&error]){
-
-            NSLog(@"connectToHost Success!");
-//            [SVProgressHUD showInfoWithStatus:@"Successfully connected to host!"];
-            
-            //成功后再设置
-            self.isReceiveNetworkData = TRUE;
-            
-            //发送一个确认信息
-            [sharedUDPNetwork sendDataToRCU:[NSData dataWithBytes:@"ACK" length:3]];
-            
-        }else{
-            NSLog(@"connectToHost failed!");
-            [SVProgressHUD showInfoWithStatus:@"Failed to connect host, Please check the related settings."];
-            return false;
-            
-        }
+        //从本地缓存获取
+//        NSDictionary *rcuInfoDic = [[NSDictionary alloc] initWithDictionary:[NetworkInfo sharedNetworkInfo].rcuInfoDic];
+//        NSString  *rcuIp = [rcuInfoDic objectForKey:@"rcuIp"];
+//        int rcuPort = [[rcuInfoDic objectForKey:@"rcuPort"] intValue];
+////        NSString *rcuIp  = @"172.144.1.106";
+////        int rcuPort = 6666;
+//        NSError *error = [[NSError alloc] init];
+//        if ([self.socket connectToHost:rcuIp onPort:rcuPort error:&error]){
+//
+//            NSLog(@"connectToHost Success!");
+////            [SVProgressHUD showInfoWithStatus:@"Successfully connected to host!"];
+//            
+//            //成功后再设置
+//            self.isReceiveNetworkData = TRUE;
+//            
+//            //发送一个确认信息
+//            //[sharedUDPNetwork sendDataToRCU:[NSData dataWithBytes:@"ACK" length:3]];
+//            
+//        }else{
+//            NSLog(@"connectToHost failed!");
+////            [SVProgressHUD showInfoWithStatus:@"Failed to connect host, Please check the related settings."];
+//            return false;
+//        
+//        }
         
         //启动接收线程
         [self.socket receiveWithTimeout:-1 tag:0];
@@ -151,33 +166,44 @@ static UDPNetwork *sharedUDPNetwork = nil;
 
 - (BOOL)disConnect{
 //    self.isReceiveNetworkData = FALSE;
+   // close(self.socket);
     return false;
 }
 
 //发送数据方法
 - (BOOL)sendDataToRCU:(NSData *)data{
     
-    // This method is only for connected sockets
-    if ([self.socket sendData:data withTimeout:2.0 tag:0]){
-        
-        NSLog(@"sending data success !");
+//    // This method is only for connected sockets
+//    if ([self.socket sendData:data withTimeout:2.0 tag:0]){
+//        
+//        NSLog(@"sending data success !");
+//        return true;
+//    }
+//    NSLog(@"sending data failed !");
+//    [SVProgressHUD showInfoWithStatus:@"Failed to send data, Please check the related settings."];
+    
+    //NSLog(@"Data: %@",data);
+//     NSString  *rcuIp = [self.rcuInfoDic objectForKey:@"rcuIp"];
+//     int rcuPort = [[self.rcuInfoDic objectForKey:@"rcuPort"] intValue];
+    NSString *rcuIp  = @"172.144.1.106";
+    int rcuPort = 7777;
+    
+    if ([self.socket sendData:data toHost:rcuIp port:rcuPort withTimeout:-1 tag:0]) {
         return true;
     }
-    NSLog(@"sending data failed !");
-    [SVProgressHUD showInfoWithStatus:@"Failed to send data, Please check the related settings."];
     return false;
 }
 
 #pragma mark -AsyncUdpSocketDelegate
 //UDP接收消息
 - (BOOL)onUdpSocket:(AsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port {
-    
+    static int i = 0;
     NSString *recStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"host----->%@ :%hu\ndata----->%@", host, port, recStr);
+    NSLog(@"(%d)host----->%@ :%hu\ndata----->%@",(i++), host, port, recStr);
     //对接收到的信息处理，如果处理时间过长，会影响接收，可采用GCD进行多任务异步处理
     
     //接收到的信息交由处理中心处理
-    [EPCore receiveDataProcessingWithData:data];
+   // [EPCore receiveDataProcessingWithData:data];
  
 
     //启动监听下一条消息

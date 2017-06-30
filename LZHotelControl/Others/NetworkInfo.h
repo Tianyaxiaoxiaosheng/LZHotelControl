@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSMutableDictionary *webInfoDic;
 @property (nonatomic, strong) NSMutableDictionary *rcuInfoDic;
 @property (nonatomic, strong) NSMutableDictionary *userInfoDic;
+@property (nonatomic, assign) NSString            *roomId;
 
 + (instancetype)sharedNetworkInfo;
 - (BOOL)networkInfoDictionaryWriteToLocatedFile;

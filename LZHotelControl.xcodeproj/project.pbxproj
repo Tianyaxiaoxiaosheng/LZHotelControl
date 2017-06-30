@@ -10,7 +10,6 @@
 		EC682B24803D859EC38BEB80 /* libPods-LZHotelControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 695E9764E7B9827B378FBF1C /* libPods-LZHotelControl.a */; };
 		F004879D1ECAE6060087E3F0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F004879C1ECAE6060087E3F0 /* Settings.bundle */; };
 		F00487A11ECBEDBC0087E3F0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F00487A31ECBEDBC0087E3F0 /* InfoPlist.strings */; };
-		F00487A81ECD87550087E3F0 /* RegisterDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F00487A71ECD87550087E3F0 /* RegisterDevice.m */; };
 		F01484261EC9823E008893C4 /* ON.png in Resources */ = {isa = PBXBuildFile; fileRef = F01484251EC9823E008893C4 /* ON.png */; };
 		F01484281EC9824C008893C4 /* OFF.png in Resources */ = {isa = PBXBuildFile; fileRef = F01484271EC9824C008893C4 /* OFF.png */; };
 		F014842B1EC997E2008893C4 /* EPCore.m in Sources */ = {isa = PBXBuildFile; fileRef = F014842A1EC997E2008893C4 /* EPCore.m */; };
@@ -134,9 +133,9 @@
 		F095C6CE1EC450D400871874 /* SetKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6CD1EC450D400871874 /* SetKeyboardView.m */; };
 		F095C6D11EC4535D00871874 /* UDPNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6D01EC4535D00871874 /* UDPNetwork.m */; };
 		F095C6DD1EC466C000871874 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6DC1EC466C000871874 /* AsyncUdpSocket.m */; };
-		F095C6E91EC59D8700871874 /* RoomInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F095C6E81EC59D8700871874 /* RoomInfo.m */; };
 		F0CB9B991EF115CA0031F8E4 /* NetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CB9B981EF115CA0031F8E4 /* NetworkInfo.m */; };
 		F0CB9B9C1EF252930031F8E4 /* WebConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CB9B9B1EF252930031F8E4 /* WebConnect.m */; };
+		F0CB9BA11F01F54F0031F8E4 /* StringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CB9BA01F01F54F0031F8E4 /* StringTools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,12 +146,10 @@
 		F004879E1ECBECF00087E3F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		F00487A21ECBEDBC0087E3F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		F00487A41ECBEDC10087E3F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		F00487A61ECD87550087E3F0 /* RegisterDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterDevice.h; sourceTree = "<group>"; };
-		F00487A71ECD87550087E3F0 /* RegisterDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDevice.m; sourceTree = "<group>"; };
 		F01484251EC9823E008893C4 /* ON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ON.png; sourceTree = "<group>"; };
 		F01484271EC9824C008893C4 /* OFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OFF.png; sourceTree = "<group>"; };
-		F01484291EC997E2008893C4 /* EPCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPCore.h; sourceTree = "<group>"; };
-		F014842A1EC997E2008893C4 /* EPCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPCore.m; sourceTree = "<group>"; };
+		F01484291EC997E2008893C4 /* EPCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EPCore.h; path = ../Others/EPCore.h; sourceTree = "<group>"; };
+		F014842A1EC997E2008893C4 /* EPCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EPCore.m; path = ../Others/EPCore.m; sourceTree = "<group>"; };
 		F095C20C1EC3F1C100871874 /* LZHotelControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LZHotelControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F095C2101EC3F1C100871874 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F095C2121EC3F1C100871874 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -295,16 +292,16 @@
 		F095C6CA1EC44F0C00871874 /* ServerKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerKeyboardView.m; sourceTree = "<group>"; };
 		F095C6CC1EC450D400871874 /* SetKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetKeyboardView.h; sourceTree = "<group>"; };
 		F095C6CD1EC450D400871874 /* SetKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetKeyboardView.m; sourceTree = "<group>"; };
-		F095C6CF1EC4535C00871874 /* UDPNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UDPNetwork.h; sourceTree = "<group>"; };
-		F095C6D01EC4535D00871874 /* UDPNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UDPNetwork.m; sourceTree = "<group>"; };
+		F095C6CF1EC4535C00871874 /* UDPNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UDPNetwork.h; path = ../Others/UDPNetwork.h; sourceTree = "<group>"; };
+		F095C6D01EC4535D00871874 /* UDPNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UDPNetwork.m; path = ../Others/UDPNetwork.m; sourceTree = "<group>"; };
 		F095C6DB1EC466C000871874 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
 		F095C6DC1EC466C000871874 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
-		F095C6E71EC59D8700871874 /* RoomInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomInfo.h; sourceTree = "<group>"; };
-		F095C6E81EC59D8700871874 /* RoomInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomInfo.m; sourceTree = "<group>"; };
-		F0CB9B971EF115CA0031F8E4 /* NetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInfo.h; sourceTree = "<group>"; };
-		F0CB9B981EF115CA0031F8E4 /* NetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInfo.m; sourceTree = "<group>"; };
-		F0CB9B9A1EF252930031F8E4 /* WebConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebConnect.h; sourceTree = "<group>"; };
-		F0CB9B9B1EF252930031F8E4 /* WebConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebConnect.m; sourceTree = "<group>"; };
+		F0CB9B971EF115CA0031F8E4 /* NetworkInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkInfo.h; path = ../Others/NetworkInfo.h; sourceTree = "<group>"; };
+		F0CB9B981EF115CA0031F8E4 /* NetworkInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkInfo.m; path = ../Others/NetworkInfo.m; sourceTree = "<group>"; };
+		F0CB9B9A1EF252930031F8E4 /* WebConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebConnect.h; path = ../Others/WebConnect.h; sourceTree = "<group>"; };
+		F0CB9B9B1EF252930031F8E4 /* WebConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebConnect.m; path = ../Others/WebConnect.m; sourceTree = "<group>"; };
+		F0CB9B9F1F01F54F0031F8E4 /* StringTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringTools.h; sourceTree = "<group>"; };
+		F0CB9BA01F01F54F0031F8E4 /* StringTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringTools.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +363,8 @@
 				F095C62B1EC3FA0500871874 /* LZMain */,
 				F095C22C1EC3F4AD00871874 /* LZImages */,
 				F095C2961EC3F4AD00871874 /* Others */,
+				F0CB9B9E1F01E8870031F8E4 /* Manager */,
+				F0CB9B9D1EF37FE50031F8E4 /* DataManagement */,
 				F095C22A1EC3F49C00871874 /* LZPch */,
 				F095C6DA1EC466C000871874 /* AsyncUdpSocket */,
 				F095C2121EC3F1C100871874 /* AppDelegate.h */,
@@ -535,19 +534,7 @@
 		F095C2961EC3F4AD00871874 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				F095C6CF1EC4535C00871874 /* UDPNetwork.h */,
-				F095C6D01EC4535D00871874 /* UDPNetwork.m */,
 				F095C2991EC3F4AD00871874 /* EquipmentInfoList.plist */,
-				F095C6E71EC59D8700871874 /* RoomInfo.h */,
-				F095C6E81EC59D8700871874 /* RoomInfo.m */,
-				F01484291EC997E2008893C4 /* EPCore.h */,
-				F014842A1EC997E2008893C4 /* EPCore.m */,
-				F00487A61ECD87550087E3F0 /* RegisterDevice.h */,
-				F00487A71ECD87550087E3F0 /* RegisterDevice.m */,
-				F0CB9B971EF115CA0031F8E4 /* NetworkInfo.h */,
-				F0CB9B981EF115CA0031F8E4 /* NetworkInfo.m */,
-				F0CB9B9A1EF252930031F8E4 /* WebConnect.h */,
-				F0CB9B9B1EF252930031F8E4 /* WebConnect.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -766,6 +753,30 @@
 				F095C6DC1EC466C000871874 /* AsyncUdpSocket.m */,
 			);
 			path = AsyncUdpSocket;
+			sourceTree = "<group>";
+		};
+		F0CB9B9D1EF37FE50031F8E4 /* DataManagement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataManagement;
+			sourceTree = "<group>";
+		};
+		F0CB9B9E1F01E8870031F8E4 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F095C6CF1EC4535C00871874 /* UDPNetwork.h */,
+				F095C6D01EC4535D00871874 /* UDPNetwork.m */,
+				F01484291EC997E2008893C4 /* EPCore.h */,
+				F014842A1EC997E2008893C4 /* EPCore.m */,
+				F0CB9B971EF115CA0031F8E4 /* NetworkInfo.h */,
+				F0CB9B981EF115CA0031F8E4 /* NetworkInfo.m */,
+				F0CB9B9A1EF252930031F8E4 /* WebConnect.h */,
+				F0CB9B9B1EF252930031F8E4 /* WebConnect.m */,
+				F0CB9B9F1F01F54F0031F8E4 /* StringTools.h */,
+				F0CB9BA01F01F54F0031F8E4 /* StringTools.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -988,6 +999,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0CB9BA11F01F54F0031F8E4 /* StringTools.m in Sources */,
 				F095C6BF1EC431D200871874 /* CZButton.m in Sources */,
 				F095C6C51EC43D9000871874 /* AirconKeyboardView.m in Sources */,
 				F0CB9B991EF115CA0031F8E4 /* NetworkInfo.m in Sources */,
@@ -1000,7 +1012,6 @@
 				F095C6CB1EC44F0C00871874 /* ServerKeyboardView.m in Sources */,
 				F0CB9B9C1EF252930031F8E4 /* WebConnect.m in Sources */,
 				F095C6BA1EC42D9800871874 /* MainLampLTView.m in Sources */,
-				F095C6E91EC59D8700871874 /* RoomInfo.m in Sources */,
 				F095C6A21EC3FBBB00871874 /* ServerViewController.m in Sources */,
 				F095C63B1EC3FA0500871874 /* EquipmentInfo.m in Sources */,
 				F095C6CE1EC450D400871874 /* SetKeyboardView.m in Sources */,
@@ -1012,7 +1023,6 @@
 				F095C63F1EC3FA0500871874 /* WDYTabbar.m in Sources */,
 				F095C6D11EC4535D00871874 /* UDPNetwork.m in Sources */,
 				F095C6BC1EC42D9800871874 /* ToletLTView.m in Sources */,
-				F00487A81ECD87550087E3F0 /* RegisterDevice.m in Sources */,
 				F095C6B71EC42D9800871874 /* CloakroomLTView.m in Sources */,
 				F095C63A1EC3FA0500871874 /* MainViewController.m in Sources */,
 				F095C68D1EC3FBBB00871874 /* LightsViewController.m in Sources */,

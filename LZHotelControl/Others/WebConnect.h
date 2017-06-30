@@ -23,9 +23,8 @@
 
 /**
  网络请求
-
- @param infoDic 参数
+ @param strUrl 参数
  @param complete 回调
  */
-- (void )registerWithInfoDic:(NSDictionary *)infoDic complet:(void (^)(NSDictionary *netObject, BOOL isSeccuss))complete;
+- (void )httpRequestWithStringUrl:(NSString *)strUrl complet:(void (^)(NSDictionary *responseDic, BOOL isSeccuss))complete;
 @end

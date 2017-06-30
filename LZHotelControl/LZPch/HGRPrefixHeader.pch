@@ -40,10 +40,9 @@
 
 #import "NetworkInfo.h"
 #import "UDPNetwork.h"
-#import "RoomInfo.h"
 #import "EPCore.h"
-#import "RegisterDevice.h"
 #import "WebConnect.h"
+#import "StringTools.h"
 
 //get local ip
 #import <ifaddrs.h>

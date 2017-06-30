@@ -24,14 +24,7 @@ static WebConnect *sharedWebConnect = nil;
     
 }
 
-- (void)registerWithInfoDic:(NSDictionary *)infoDic complet:(void (^)(NSDictionary *netObject, BOOL isSeccuss))complete{
-    
-    NSString *parameterStr = [[NSString alloc] initWithFormat:@"?localIp=%@&localPort=%@&userId=%@&userPwd=%@", [infoDic objectForKey:@"localIp"]
-                      , [infoDic objectForKey:@"localPort"]
-                      , [infoDic objectForKey:@"userId"]
-                      , [infoDic objectForKey:@"userPwd"]
-                              ];
-    NSString *strUrl = [NSString stringWithFormat:@"http://192.168.0.45:8080/webDemo/Register%@",parameterStr];
+- (void )httpRequestWithStringUrl:(NSString *)strUrl complet:(void (^)(NSDictionary *responseDic, BOOL isSeccuss))complete{
     
     strUrl = [strUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
@@ -44,8 +37,8 @@ static WebConnect *sharedWebConnect = nil;
         NSLog(@"Register请求完成！");
         if (!taskError) {
             //NSError *jsonError = nil;
-          NSDictionary *dataDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-            complete(dataDic,YES);
+          NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            complete(responseDic,YES);
         }else{
             NSLog(@"\ntask error: %@", taskError.localizedDescription);
             complete(nil,NO);

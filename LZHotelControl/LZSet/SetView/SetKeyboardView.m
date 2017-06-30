@@ -36,7 +36,7 @@
         self.keyTextField.secureTextEntry = YES;
         
         //房间号文本框
-        self.roomNumTextField.text = [RoomInfo sharedRoomInfo].roomInfoDic[@"roomNum"];
+        self.roomNumTextField.text = [NetworkInfo sharedNetworkInfo].userInfoDic[@"userId"];
         self.roomNumTextField.clearButtonMode = UITextFieldViewModeAlways;
         self.roomNumTextField.clearsOnBeginEditing = YES;
         self.roomNumTextField.keyboardType = UIKeyboardTypeDecimalPad; //数字键盘 有数字和小数点
@@ -65,24 +65,22 @@
 #pragma mark - 按钮事件
 //取消，使房间号显示为原来
 - (IBAction)cancel:(id)sender {
-    self.roomNumTextField.text = [RoomInfo sharedRoomInfo].roomInfoDic[@"roomNum"];
+    self.roomNumTextField.text = [NetworkInfo sharedNetworkInfo].userInfoDic[@"userId"];
     self.keyTextField.text = nil;
 }
 
-//保存房间号
+//注册，保存房间号
 - (IBAction)preserve:(id)sender {
-    //保存前检查规范
-    if (![self isFourBitOfRoomNumbersWithString:self.roomNumTextField.text]) {
-        [SVProgressHUD showInfoWithStatus:@"房间号不符合规范！"];
-        return;
-    }
+    //保存前检查规范,抽离到注册方法中
+//    if (![self isFourBitOfRoomNumbersWithString:self.roomNumTextField.text]) {
+//        [SVProgressHUD showInfoWithStatus:@"房间号不符合规范！"];
+//        return;
+//    }
     
-    //更新本地数据
-    if ([[RoomInfo sharedRoomInfo] updateRoomNumber:self.roomNumTextField.text andKey:self.keyTextField.text]) {
-        [SVProgressHUD showSuccessWithStatus:@"保存成功 !"];
-    }else{
-        [SVProgressHUD showErrorWithStatus:@"保存失败 !"];
-    }
+    //注册
+    [EPCore registerWithUserInfo:self.roomNumTextField.text andPassword:self.keyTextField.text];
+    
+    //更新本地数据放在注册方法中
 
 }
 - (IBAction)test {
@@ -98,14 +96,21 @@
 //    }
     
     //测试注册
-//    NSDictionary *dic = [[WebConnect sharedWebConnect] registerWithInfoDic:@{@"":@""}];
-    NSDictionary *dic = @{@"localIp":@"192.168.0.1",@"localPort":@"12345",@"userId":@"12345",@"userPwd":@"123456"};
-    //NSLog(@"测试按钮点击");
-    [[WebConnect sharedWebConnect] registerWithInfoDic:dic complet:^(NSDictionary *netObject, BOOL isSeccuss){
-        if (isSeccuss) {
-            NSLog(@"netObject: %@",netObject);
-        }
-    }];
+//    NSDictionary *infoDic = @{@"localIp":@"192.168.0.15",@"localPort":@"12345",@"userId":@"1208",@"userPwd":@"123456"};
+//    NSLog(@"测试按钮点击");
+//    
+//    NSString *strUrl = [[StringTools sharedStringTools] registerStringUrlWithDictionary:infoDic];
+    
+    
+    //测试获取状态信息
+//    NSDictionary *infoDic = @{@"roomId":@"3",@"deviceId":@"1"};
+//    NSString *strUrl = [[StringTools sharedStringTools] getOriginalStateStringUrlWithDictionary:infoDic];
+//
+//    [[WebConnect sharedWebConnect] httpRequestWithStringUrl:strUrl complet:^(NSDictionary *responseDic, BOOL isSeccuss){
+//        if (isSeccuss) {
+//            NSLog(@"netObject: %@",responseDic);
+//        }
+//    }];
     
 }
 

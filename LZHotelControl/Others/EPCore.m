@@ -91,4 +91,52 @@ static EPCore *sharedEPCore;
     
 }
 
+#pragma mark -- 注册功能
++ (void)registerWithUserInfo:(NSString *)userId andPassword:(NSString *)userPwd{
+    //检查输入的数据格式
+    if (![StringTools isFourBitOfRoomNumbersWithString:userId]) {
+        [SVProgressHUD showInfoWithStatus:@"房间号不符合规范！"];
+        return;
+    }
+    
+    //获取本设备信息
+    NSDictionary *localInfoDic = [[NSDictionary alloc] initWithDictionary:[NetworkInfo sharedNetworkInfo].localInfoDic];
+    
+    //NSLog(@"localInfoDic : %@",localInfoDic);
+    NSDictionary *infoDic = @{@"localIp":[localInfoDic objectForKey:@"localIp"]                                    ,@"localPort":[localInfoDic objectForKey:@"localPort"]
+                              ,@"userId":userId
+                              ,@"userPwd":userPwd};
+    NSString *strUrl = [[StringTools sharedStringTools] registerStringUrlWithDictionary:infoDic];
+    
+    NSLog(@"strUrl :%@",strUrl);
+    [[WebConnect sharedWebConnect] httpRequestWithStringUrl:strUrl complet:^(NSDictionary *responseDic, BOOL isSeccuss){
+        if (isSeccuss) {
+            //[SVProgressHUD showSuccessWithStatus:@"Succeed !"];
+            NSLog(@"responseDic: %@",responseDic);
+            //请求成功后，对返回的数据处理
+            [self dealWithInfomationResponse:responseDic andInfo:infoDic];
+        }else {
+            //[SVProgressHUD showSuccessWithStatus:@"Faled !"];
+        }
+    }];
+}
+
++ (void) dealWithInfomationResponse:(NSDictionary *)responseDic andInfo:(NSDictionary *)infoDic{
+    BOOL isSuccess = [[responseDic objectForKey:@"isSuccess"] boolValue];
+    if (isSuccess) {
+        //更新本地网络信息
+        NetworkInfo *sharedNetworkInfo = [NetworkInfo sharedNetworkInfo];
+        [sharedNetworkInfo.rcuInfoDic setDictionary:[responseDic objectForKey:@"rcuInfo"]];
+        sharedNetworkInfo.roomId = [responseDic objectForKey:@"roomId"];
+        [sharedNetworkInfo.userInfoDic setObject:[infoDic objectForKey:@"userId"] forKey:@"userId"];
+        [sharedNetworkInfo.userInfoDic setObject:[infoDic objectForKey:@"userPwd"] forKey:@"userPwd"];
+        
+        //写入本地缓存
+        [sharedNetworkInfo networkInfoDictionaryWriteToLocatedFile];
+        [SVProgressHUD showSuccessWithStatus:@"Succeed, please restart!"];
+    } else{
+        [SVProgressHUD showErrorWithStatus:[responseDic objectForKey:@"errorInfo"]];
+    }
+}
+
 @end
