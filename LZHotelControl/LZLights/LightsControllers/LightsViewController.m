@@ -23,9 +23,51 @@
 @property (nonatomic, strong) CloakroomLTView     *cloakroomLTView;
 @property (nonatomic, strong) GuestBathroomLTView *guestBathroomLTView;
 
+//test
+@property (nonatomic, strong) NSDictionary *lightsDic;
+
 @end
 
 @implementation LightsViewController
+
+- (NSDictionary *)lightsDic{
+    if (!_lightsDic) {
+        NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
+       __block NSInteger lightId = 1;
+        
+//        for (UIView *view in self.bedroomLTView.subviews) {
+//            if ([view isKindOfClass:[UIButton class]]) {
+//                NSLog(@"0000 tag :%ld",view.tag);
+//                UIButton *button = (UIButton *)view;
+//                [tempDic setObject:button forKey:[NSString stringWithFormat:@"%ld",view.tag]];
+//            }
+//        }
+        
+        void (^getLightsButton)(UIView*,int) = ^(UIView *view, int count){
+            for (int i = 1; i<= count; i++) {
+                UIView *subView = [view viewWithTag:i];
+                if (subView) {
+                    if ([subView isKindOfClass:[UIButton class]]) {
+                        UIButton *button = (UIButton *)subView;
+                        [tempDic setObject:button forKey:[NSString stringWithFormat:@"%ld",lightId]];
+                        lightId++;
+                        //test
+                        //NSLog(@"lightId: %ld",lightId-1);
+                    }
+                }
+            }
+        };
+        
+        getLightsButton(self.bedroomLTView, 5);
+        getLightsButton(self.mainLampLTView, 2);
+        getLightsButton(self.toletLTView, 1);
+        getLightsButton(self.cloakroomLTView, 2);
+        getLightsButton(self.guestBathroomLTView, 3);
+        
+        _lightsDic = [NSDictionary dictionaryWithDictionary:tempDic];
+    }
+    return _lightsDic;
+}
 
 #pragma mark - lazyload ////////////////////////////////////////////////////////////
 
@@ -110,23 +152,7 @@
     [self initLTnavigationBarKeyboardView];
     
     //注册通知，死亡时移除
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(controlInformationProcessing:) name:@"LightsControllerNotification" object:nil];
-}
-
-- (void)controlInformationProcessing:(NSNotification *)notification{
-    
-    NSLog(@"LightsControllerNotification");
-    NSDictionary *dic = [notification userInfo];
-    //判断界面
-    switch ([dic[@"viewNum"] integerValue]) {
-        case 1:
-            [self bedroomLTViewControl:dic];
-            break;
-            
-        default:
-            break;
-    }
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(controlInformationProcessing:) name:@"Lights" object:nil];
 }
 
 - (void)bedroomLTViewControl:(NSDictionary *)dic{
@@ -149,7 +175,7 @@
 
 #pragma mark - OverAllControlView delegate /////////////////////////////////////////////////////
 -(void)OverAllSwitchONAndOFF:(NSInteger)tag{
-//    NSLog(@"OverAllSwitchONAndOFF: %ld", tag);
+    NSLog(@"OverAllSwitchONAndOFF: %ld", tag);
     switch (tag) {
         case 1:
             [self.tempView allLightsSwitchIsOpen:TRUE];
@@ -161,6 +187,15 @@
         default:
             break;
     }
+
+//    for (NSString *lightId in [self.lightsDic allKeys]) {
+//        UIButton *button = [self.lightsDic objectForKey:lightId];
+//        
+//        button.selected = tag == 1 ?true:false;
+//    }
+//    if ([[self.lightsDic objectForKey:@"1"] isKindOfClass:[UIView class]]){
+//        NSLog(@"0000");
+//    }
 }
 
 #pragma mark - LTNavigationBarView delegate ///////////////////////////////////////////////////
@@ -195,6 +230,43 @@
     self.tempView = view;
     [self.lTnavigationBarView addSubview:view];
 //    NSLog(@"view tag: %ld", view.tag);
+}
+
+#pragma mark -- 解析信息
+- (void)controlInformationProcessing:(NSNotification *)notification{
+    
+    NSString *string = [notification object];
+//    NSLog(@"Lights Notification : %@", string);
+    
+    //截取字符串
+    NSString *typeStr = [string substringToIndex:2];
+//    NSString *orderStr = [string substringFromIndex:4];
+    if ([typeStr isEqualToString:@"LC"]) {
+        NSLog(@"Lights Notification : %@", string);
+        NSString *statusStr = [string substringWithRange:NSMakeRange(2, 1)];
+        BOOL isOpen = ([statusStr integerValue] == 1)? true:false;
+        
+        NSString *orderStr = [string substringFromIndex:4];
+        //NSLog(@"orderStr: %@", orderStr);
+        NSArray *strArray = [orderStr componentsSeparatedByString:@","];
+        //NSLog(@"strArray: %d", strArray.count);
+        
+        
+        for (NSString *lightId in [self.lightsDic allKeys]) {
+            
+            UIButton *button = [self.lightsDic objectForKey:lightId];
+            
+//            if ([strArray containsObject:lightId]) {
+//                button.selected = isOpen;
+//            }else {
+//                button.selected = !isOpen;
+//            }
+            button.selected = [strArray containsObject:lightId] ? isOpen : !isOpen;
+        }
+        
+    }else if ([typeStr isEqualToString:@"DM"]) {
+    }
+    
 }
 
 @end

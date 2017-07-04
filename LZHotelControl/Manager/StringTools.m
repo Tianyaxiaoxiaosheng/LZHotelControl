@@ -31,7 +31,7 @@ static StringTools *sharedStringTools;
                               , [infoDic objectForKey:@"userId"]
                               , [infoDic objectForKey:@"userPwd"]
                               ];
-    NSString *strUrl = [NSString stringWithFormat:@"http://192.168.0.15:8080/hotelWeb/Register%@",parameterStr];
+    NSString *strUrl = [NSString stringWithFormat:@"http://172.144.1.120:8080/hotelWeb/Register%@",parameterStr];
     return strUrl;
 }
 
@@ -46,7 +46,7 @@ static StringTools *sharedStringTools;
                               , [infoDic objectForKey:@"roomId"]
                               , [infoDic objectForKey:@"deviceId"]
                               ];
-    NSString *strUrl = [NSString stringWithFormat:@"http://192.168.0.15:8080/hotelWeb/DeviceState%@",parameterStr];
+    NSString *strUrl = [NSString stringWithFormat:@"http://172.144.1.120:8080/hotelWeb/DeviceState%@",parameterStr];
     return strUrl;
 }
 

@@ -204,6 +204,7 @@ static UDPNetwork *sharedUDPNetwork = nil;
     
     //接收到的信息交由处理中心处理
    // [EPCore receiveDataProcessingWithData:data];
+    [EPCore rcuInfoAnalysis:data];
  
 
     //启动监听下一条消息

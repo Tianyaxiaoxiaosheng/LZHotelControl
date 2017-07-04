@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *windTypeImage;
 @property (weak, nonatomic) IBOutlet UIImageView *modeTypeImage;
 
+//界面信息修改
+- (void)setViewInfo:(NSDictionary *)setDic;
+
 @end

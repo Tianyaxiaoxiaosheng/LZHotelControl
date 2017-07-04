@@ -23,13 +23,13 @@
 //加载空调模式显示的数组
 - (NSArray *)modeTypeImages{
     if (!_modeTypeImages) {
-        _modeTypeImages = @[@"model_hot", @"model_code", @"model_wind"];
+        _modeTypeImages = @[@"model_wind", @"model_code", @"model_hot"];
     }
     return _modeTypeImages;
 }
 - (NSArray *)windTypeImages{
     if (!_windTypeImages) {
-        _windTypeImages = @[@"wind_speed0", @"wind_speed1", @"wind_speed2", @"wind_speed3", @"wind_speed4"];
+        _windTypeImages = @[@"wind_speed4", @"wind_speed1", @"wind_speed2", @"wind_speed3", @"wind_speed0"];
     }
     return _windTypeImages;
 }
@@ -59,30 +59,47 @@
 }
 
 - (void)buttonClicked:(UIButton *)button{
-    switch (button.tag) {
-        case 1:
-            self.temperatureLabel.text = [NSString stringWithFormat:@"%ld", ++self.temperature];
-            break;
-        case 2:
-            self.temperatureLabel.text = [NSString stringWithFormat:@"%ld", --self.temperature];
-            break;
-        case 3:
-        case 4:
-        case 5:
-            self.modeTypeImage.image = [UIImage imageNamed:self.modeTypeImages[button.tag%3]];
-            break;
-        case 6:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-            self.windTypeImage.image = [UIImage imageNamed:self.windTypeImages[button.tag%6]];
-            break;
-            
-            
-        default:
-            break;
-    }
+//    switch (button.tag) {
+//        case 1:
+//            self.temperatureLabel.text = [NSString stringWithFormat:@"%ld", ++self.temperature];
+//            break;
+//        case 2:
+//            self.temperatureLabel.text = [NSString stringWithFormat:@"%ld", --self.temperature];
+//            break;
+//        case 3:
+//        case 4:
+//        case 5:
+//            self.modeTypeImage.image = [UIImage imageNamed:self.modeTypeImages[button.tag%3]];
+//            break;
+//        case 6:
+//        case 7:
+//        case 8:
+//        case 9:
+//        case 10:
+//            self.windTypeImage.image = [UIImage imageNamed:self.windTypeImages[button.tag%6]];
+//            break;
+//            
+//            
+//        default:
+//            break;
+//    }
+}
+
+- (void)setViewInfo:(NSDictionary *)setDic{
+    //NSLog(@"setDic: %@", setDic);
+    
+    //显示实际温度
+    //self.temperatureLabel.text = [NSString stringWithFormat:@"%@", [setDic objectForKey:@"aTemp"]];
+    
+    //显示设置温度
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%@", [setDic objectForKey:@"sTemp"]];
+
+    
+    NSInteger modeType = [[setDic objectForKey:@"modeType"] integerValue];
+    self.modeTypeImage.image = [UIImage imageNamed:self.modeTypeImages[modeType]];
+    
+    NSInteger windType = [[setDic objectForKey:@"windType"] integerValue];
+    self.windTypeImage.image = [UIImage imageNamed:self.windTypeImages[windType]];
 }
 
 @end
