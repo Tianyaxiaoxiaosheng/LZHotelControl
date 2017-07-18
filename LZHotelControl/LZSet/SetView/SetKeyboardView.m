@@ -112,6 +112,62 @@
 //        }
 //    }];
     
+    //测试udp发送
+    UDPNetwork * sharedUDPNetwork= [UDPNetwork sharedUDPNetwork];
+//    char buffer[26]= {0x02
+//        ,0x45,0x43,0x7c
+//        ,0x52,0x4e,0x30,0x38,0x35,0x31,0x7c
+//        ,0x50,0x57,0x30,0x38,0x35,0x31,0x7c
+//        ,0x4c,0x43,0x38,0x2c,0x30,0x7c
+//        ,0x03,0x01
+//    };
+//    NSData *data = [[NSData alloc] initWithBytes:buffer length:26];
+    
+//    NSString *str = @"EC|RN0851|PW0851|LC8,0|";
+//    NSString *string = [NSString stringWithFormat:@"%c%@%c%c",0x02,str,0x01,0x03];
+    
+//    char *buf = "EC|RN0851|PW0851|LC8,0|";
+//    char *h = "hhh";
+//    char *c = (char *) malloc(strlen(h) + strlen(buf));
+//    char pried[] = {0x02};
+//    char end[] = {0x03};
+//    char c[] = {0x01};
+//    strcat(h, buf);
+//    strcpy(ch, buf);
+//    strncat(c, buf, strlen(buf));
+//    NSLog(@"buffer:%s",h);
+//    buffer = strcat(buffer, end);
+//    buffer = strcat(buffer, c);
+    
+    //ARC机制下操作内存需要申请
+    char *str = "EC|RN0851|PW0851|LC8,0:9,0:10,0|";
+    char pried = 0x02;
+    char end = 0x03;
+    char check = 0x01;
+    char *buff = (char *) malloc(3 + strlen(str));
+    
+    strncpy(buff, &pried,1);
+
+    strncat(buff, str, strlen(str));
+
+    strncat(buff, &end,1);
+
+    strncat(buff, &check,1);
+
+    NSLog(@"length:%ld",strlen(&pried));//输出为4
+    
+    for (int i = 0; i < strlen(buff); i++) {
+        printf("-%x", buff[i]);
+    }
+    
+
+    
+    
+    
+    
+    NSData *data = [NSData dataWithBytes:buff length:strlen(buff)];
+
+    [sharedUDPNetwork sendDataToRCU:data];
 }
 
 #pragma mark - 文本处理

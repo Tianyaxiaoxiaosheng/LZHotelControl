@@ -238,7 +238,7 @@ static EPCore *sharedEPCore;
     NSUInteger loc = [frStr rangeOfString:@"|"].location;
     
     while (loc != NSNotFound) {
-        NSString *subStr = [frStr substringToIndex:loc];
+//        NSString *subStr = [frStr substringToIndex:loc];
 //        NSLog(@"subStr: %@", subStr);
         frStr = [frStr substringFromIndex:loc+1];
         loc = [frStr rangeOfString:@"|"].location;

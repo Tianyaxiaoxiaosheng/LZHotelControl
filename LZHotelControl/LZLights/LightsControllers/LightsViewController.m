@@ -244,12 +244,16 @@
     if ([typeStr isEqualToString:@"LC"]) {
         NSLog(@"Lights Notification : %@", string);
         NSString *statusStr = [string substringWithRange:NSMakeRange(2, 1)];
-        BOOL isOpen = ([statusStr integerValue] == 1)? true:false;
+        BOOL isOpen = ([statusStr integerValue] == 1)? YES:NO;
+        
+        if (isOpen) {
+            NSLog(@"****open*****");
+        }
         
         NSString *orderStr = [string substringFromIndex:4];
         //NSLog(@"orderStr: %@", orderStr);
         NSArray *strArray = [orderStr componentsSeparatedByString:@","];
-        //NSLog(@"strArray: %d", strArray.count);
+        //NSLog(@"strArray count: %d", strArray.count);
         
         
         for (NSString *lightId in [self.lightsDic allKeys]) {
@@ -257,11 +261,19 @@
             UIButton *button = [self.lightsDic objectForKey:lightId];
             
 //            if ([strArray containsObject:lightId]) {
+//                NSLog(@"lightId = %@",lightId);
 //                button.selected = isOpen;
 //            }else {
 //                button.selected = !isOpen;
 //            }
-            button.selected = [strArray containsObject:lightId] ? isOpen : !isOpen;
+//            button.selected = [strArray containsObject:lightId] ? isOpen : (!isOpen);
+            
+            //特殊的255
+            if ([strArray containsObject:@"255"]) {
+                button.selected = isOpen;
+            }else {
+                button.selected = [strArray containsObject:lightId] ? isOpen : (!isOpen);
+            }
         }
         
     }else if ([typeStr isEqualToString:@"DM"]) {

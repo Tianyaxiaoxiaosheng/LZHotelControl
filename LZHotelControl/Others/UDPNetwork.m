@@ -185,8 +185,8 @@ static UDPNetwork *sharedUDPNetwork = nil;
     //NSLog(@"Data: %@",data);
 //     NSString  *rcuIp = [self.rcuInfoDic objectForKey:@"rcuIp"];
 //     int rcuPort = [[self.rcuInfoDic objectForKey:@"rcuPort"] intValue];
-    NSString *rcuIp  = @"172.144.1.106";
-    int rcuPort = 7777;
+    NSString *rcuIp  = @"172.144.8.51";
+    int rcuPort = 9990;
     
     if ([self.socket sendData:data toHost:rcuIp port:rcuPort withTimeout:-1 tag:0]) {
         return true;

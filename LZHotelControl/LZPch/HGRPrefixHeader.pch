@@ -58,6 +58,10 @@
 //SVProgressHUD
 #import "SVProgressHUD.h"
 
+//string
+#include <stdio.h>
+#include <string.h>
+
 
 
 #pragma mark -View Info

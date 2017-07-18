@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC682B24803D859EC38BEB80 /* libPods-LZHotelControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 695E9764E7B9827B378FBF1C /* libPods-LZHotelControl.a */; };
+		0A16C725150923AF4A571DE0 /* libPods-LZHotelControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6391914216E2B9C3EF16E54D /* libPods-LZHotelControl.a */; };
 		F004879D1ECAE6060087E3F0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F004879C1ECAE6060087E3F0 /* Settings.bundle */; };
 		F00487A11ECBEDBC0087E3F0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F00487A31ECBEDBC0087E3F0 /* InfoPlist.strings */; };
 		F01484261EC9823E008893C4 /* ON.png in Resources */ = {isa = PBXBuildFile; fileRef = F01484251EC9823E008893C4 /* ON.png */; };
@@ -139,9 +139,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		68A0620DCCFE844B4D75AC79 /* Pods-LZHotelControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZHotelControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-LZHotelControl/Pods-LZHotelControl.release.xcconfig"; sourceTree = "<group>"; };
-		695E9764E7B9827B378FBF1C /* libPods-LZHotelControl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LZHotelControl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE68156FE0E0B7E52A1020F2 /* Pods-LZHotelControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZHotelControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LZHotelControl/Pods-LZHotelControl.debug.xcconfig"; sourceTree = "<group>"; };
+		5AB53CF928119CDE89F5C09E /* Pods-LZHotelControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZHotelControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LZHotelControl/Pods-LZHotelControl.debug.xcconfig"; sourceTree = "<group>"; };
+		6391914216E2B9C3EF16E54D /* libPods-LZHotelControl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LZHotelControl.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA1E225C412B610F2B708E32 /* Pods-LZHotelControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZHotelControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-LZHotelControl/Pods-LZHotelControl.release.xcconfig"; sourceTree = "<group>"; };
 		F004879C1ECAE6060087E3F0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		F004879E1ECBECF00087E3F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		F00487A21ECBEDBC0087E3F0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -309,28 +309,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC682B24803D859EC38BEB80 /* libPods-LZHotelControl.a in Frameworks */,
+				0A16C725150923AF4A571DE0 /* libPods-LZHotelControl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2402E2EE121CC67A57A8F42B /* Pods */ = {
+		38CE8130F5623335D5B366FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE68156FE0E0B7E52A1020F2 /* Pods-LZHotelControl.debug.xcconfig */,
-				68A0620DCCFE844B4D75AC79 /* Pods-LZHotelControl.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		80027F62D205B109254295E5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				695E9764E7B9827B378FBF1C /* libPods-LZHotelControl.a */,
+				6391914216E2B9C3EF16E54D /* libPods-LZHotelControl.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E6EA33193BC797CEEE099A8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5AB53CF928119CDE89F5C09E /* Pods-LZHotelControl.debug.xcconfig */,
+				DA1E225C412B610F2B708E32 /* Pods-LZHotelControl.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		F095C2031EC3F1C100871874 = {
@@ -340,8 +340,8 @@
 				F004879C1ECAE6060087E3F0 /* Settings.bundle */,
 				F095C20E1EC3F1C100871874 /* LZHotelControl */,
 				F095C20D1EC3F1C100871874 /* Products */,
-				2402E2EE121CC67A57A8F42B /* Pods */,
-				80027F62D205B109254295E5 /* Frameworks */,
+				4E6EA33193BC797CEEE099A8 /* Pods */,
+				38CE8130F5623335D5B366FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -786,12 +786,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F095C2231EC3F1C100871874 /* Build configuration list for PBXNativeTarget "LZHotelControl" */;
 			buildPhases = (
-				A0E2F09CA0B2E5D1351D0CC5 /* [CP] Check Pods Manifest.lock */,
+				1C3322CEB92EE40E8756BD49 /* [CP] Check Pods Manifest.lock */,
 				F095C2081EC3F1C100871874 /* Sources */,
 				F095C2091EC3F1C100871874 /* Frameworks */,
 				F095C20A1EC3F1C100871874 /* Resources */,
-				F9B68E23E48680E754B70A6A /* [CP] Embed Pods Frameworks */,
-				656073092B5AAA78B9701F77 /* [CP] Copy Pods Resources */,
+				AADB885A859E70F149720032 /* [CP] Embed Pods Frameworks */,
+				A4964E6498C42E5B6BDDB9B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -947,22 +947,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		656073092B5AAA78B9701F77 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LZHotelControl/Pods-LZHotelControl-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A0E2F09CA0B2E5D1351D0CC5 /* [CP] Check Pods Manifest.lock */ = {
+		1C3322CEB92EE40E8756BD49 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -977,7 +962,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F9B68E23E48680E754B70A6A /* [CP] Embed Pods Frameworks */ = {
+		A4964E6498C42E5B6BDDB9B5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LZHotelControl/Pods-LZHotelControl-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AADB885A859E70F149720032 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1150,10 +1150,11 @@
 		};
 		F095C2241EC3F1C100871874 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE68156FE0E0B7E52A1020F2 /* Pods-LZHotelControl.debug.xcconfig */;
+			baseConfigurationReference = 5AB53CF928119CDE89F5C09E /* Pods-LZHotelControl.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = E47JKL8BW9;
 				GCC_PREFIX_HEADER = /Users/jony/IOSDemo/LZHotelControl/LZHotelControl/LZPch/HGRPrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/Headers/Public\"";
 				INFOPLIST_FILE = LZHotelControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yavatop.LZHotelControl;
@@ -1163,10 +1164,11 @@
 		};
 		F095C2251EC3F1C100871874 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68A0620DCCFE844B4D75AC79 /* Pods-LZHotelControl.release.xcconfig */;
+			baseConfigurationReference = DA1E225C412B610F2B708E32 /* Pods-LZHotelControl.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = E47JKL8BW9;
 				GCC_PREFIX_HEADER = /Users/jony/IOSDemo/LZHotelControl/LZHotelControl/LZPch/HGRPrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/Headers/Public\"";
 				INFOPLIST_FILE = LZHotelControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yavatop.LZHotelControl;
